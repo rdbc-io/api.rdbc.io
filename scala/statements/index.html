@@ -1,0 +1,1148 @@
+
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <meta name="author" content="Krzysztof Pado">
+      
+      
+        <link rel="shortcut icon" href="../../assets/images/favicon.png">
+      
+      <meta name="generator" content="mkdocs-0.16.3, mkdocs-material-1.6.1">
+    
+    
+      
+        <title>Statements - rdbc documentation - 0.0.61-SNAPSHOT</title>
+      
+    
+    
+      <script src="../../assets/javascripts/modernizr-56ade86843.js"></script>
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/application-4d0d3f2fbf.css">
+      
+        <link rel="stylesheet" href="../../assets/stylesheets/application-f78e5cb881.palette.css">
+      
+    
+    
+      
+        
+        
+        
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700|Roboto+Mono">
+        <style>body,input{font-family:"Roboto","Helvetica Neue",Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono","Courier New",Courier,monospace}</style>
+      
+      <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    
+    
+      <link rel="stylesheet" href="../../css/extra.css">
+    
+    
+  </head>
+  
+  
+  
+  
+    <body data-md-color-primary="green" data-md-color-accent="red">
+  
+    <svg class="md-svg">
+      <defs>
+        
+        
+          <svg xmlns="http://www.w3.org/2000/svg" width="416" height="448" viewBox="0 0 416 448" id="github"><path fill="currentColor" d="M160 304q0 10-3.125 20.5t-10.75 19T128 352t-18.125-8.5-10.75-19T96 304t3.125-20.5 10.75-19T128 256t18.125 8.5 10.75 19T160 304zm160 0q0 10-3.125 20.5t-10.75 19T288 352t-18.125-8.5-10.75-19T256 304t3.125-20.5 10.75-19T288 256t18.125 8.5 10.75 19T320 304zm40 0q0-30-17.25-51T296 232q-10.25 0-48.75 5.25Q229.5 240 208 240t-39.25-2.75Q130.75 232 120 232q-29.5 0-46.75 21T56 304q0 22 8 38.375t20.25 25.75 30.5 15 35 7.375 37.25 1.75h42q20.5 0 37.25-1.75t35-7.375 30.5-15 20.25-25.75T360 304zm56-44q0 51.75-15.25 82.75-9.5 19.25-26.375 33.25t-35.25 21.5-42.5 11.875-42.875 5.5T212 416q-19.5 0-35.5-.75t-36.875-3.125-38.125-7.5-34.25-12.875T37 371.5t-21.5-28.75Q0 312 0 260q0-59.25 34-99-6.75-20.5-6.75-42.5 0-29 12.75-54.5 27 0 47.5 9.875t47.25 30.875Q171.5 96 212 96q37 0 70 8 26.25-20.5 46.75-30.25T376 64q12.75 25.5 12.75 54.5 0 21.75-6.75 42 34 40 34 99.5z"/></svg>
+        
+      </defs>
+    </svg>
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="drawer">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="search">
+    <label class="md-overlay" data-md-component="overlay" for="drawer"></label>
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid">
+    <div class="md-flex">
+      <div class="md-flex__cell md-flex__cell--shrink">
+        
+          <a href="../.." title="rdbc documentation - 0.0.61-SNAPSHOT" class="md-icon md-icon--home md-header-nav__button">
+          </a>
+        
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <label class="md-icon md-icon--menu md-header-nav__button" for="drawer"></label>
+      </div>
+      <div class="md-flex__cell md-flex__cell--stretch">
+        <span class="md-flex__ellipsis md-header-nav__title">
+          
+            
+              
+                <span class="md-header-nav__parent">
+                  Scala API user guide
+                </span>
+              
+            
+            Statements
+          
+        </span>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        
+          <label class="md-icon md-icon--search md-header-nav__button" for="search"></label>
+          
+<div class="md-search" data-md-component="search">
+  <label class="md-search__overlay" for="search"></label>
+  <div class="md-search__inner">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" required placeholder="Search" accesskey="s" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="query">
+      <label class="md-icon md-search__icon" for="search"></label>
+      <button type="reset" class="md-icon md-search__icon" data-md-component="reset">close</button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="result">
+          <div class="md-search-result__meta" data-md-lang-result-none="No matching documents" data-md-lang-result-one="1 matching document" data-md-lang-result-other="# matching documents">
+            Type to start searching
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+        
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <div class="md-header-nav__source">
+          
+            
+
+
+  
+
+
+  <a href="https://github.com/rdbc-io/rdbc" title="Go to repository" class="md-source" data-md-source="github">
+    
+      <div class="md-source__icon">
+        <svg viewBox="0 0 24 24" width="24" height="24">
+          <use xlink:href="#github" width="24" height="24"></use>
+        </svg>
+      </div>
+    
+    <div class="md-source__repository">
+      rdbc-io/rdbc
+    </div>
+  </a>
+
+          
+        </div>
+      </div>
+    </div>
+  </nav>
+</header>
+    
+    <div class="md-container">
+      
+      
+      <main class="md-main">
+        <div class="md-main__inner md-grid" data-md-component="container">
+          
+            
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    <nav class="md-nav md-nav--primary" data-md-level="0">
+  <label class="md-nav__title md-nav__title--site" for="drawer">
+    
+      <i class="md-icon md-icon--home md-nav__button"></i>
+    
+    rdbc documentation - 0.0.61-SNAPSHOT
+  </label>
+  
+    <div class="md-nav__source">
+      
+
+
+  
+
+
+  <a href="https://github.com/rdbc-io/rdbc" title="Go to repository" class="md-source" data-md-source="github">
+    
+      <div class="md-source__icon">
+        <svg viewBox="0 0 24 24" width="24" height="24">
+          <use xlink:href="#github" width="24" height="24"></use>
+        </svg>
+      </div>
+    
+    <div class="md-source__repository">
+      rdbc-io/rdbc
+    </div>
+  </a>
+
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../.." title="Introduction" class="md-nav__link">
+      Introduction
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2" type="checkbox" id="nav-2" checked>
+    
+    <label class="md-nav__link" for="nav-2">
+      Scala API user guide
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-2">
+        Scala API user guide
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../gettingstarted/" title="Getting started" class="md-nav__link">
+      Getting started
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../core_concepts/" title="Core concepts" class="md-nav__link">
+      Core concepts
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../connection/" title="Working with a connection" class="md-nav__link">
+      Working with a connection
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="toc">
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="toc">
+        Statements
+      </label>
+    
+    <a href="./" title="Statements" class="md-nav__link md-nav__link--active">
+      Statements
+    </a>
+    
+      
+<nav class="md-nav md-nav--secondary">
+  
+  
+  
+    <label class="md-nav__title" for="toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#statement-types" title="Statement types" class="md-nav__link">
+    Statement types
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#syntax" title="Syntax" class="md-nav__link">
+    Syntax
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#named-parameters" title="Named parameters" class="md-nav__link">
+    Named parameters
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#positional-parameters" title="Positional parameters" class="md-nav__link">
+    Positional parameters
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#creating-statements" title="Creating statements" class="md-nav__link">
+    Creating statements
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#bare-strings" title="Bare strings" class="md-nav__link">
+    Bare strings
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#string-interpolator" title="String interpolator" class="md-nav__link">
+    String interpolator
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#dynamic-sql" title="Dynamic SQL" class="md-nav__link">
+    Dynamic SQL
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#options" title="Options" class="md-nav__link">
+    Options
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#executing-statements" title="Executing statements" class="md-nav__link">
+    Executing statements
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#executing-for-a-result-set" title="Executing for a result set" class="md-nav__link">
+    Executing for a result set
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#streaming-results" title="Streaming results" class="md-nav__link">
+    Streaming results
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#executing-ignoring-results" title="Executing ignoring results" class="md-nav__link">
+    Executing ignoring results
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#executing-for-a-single-row-and-for-a-value" title="Executing for a single row and for a value" class="md-nav__link">
+    Executing for a single row and for a value
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#executing-for-rows-affected" title="Executing for rows affected" class="md-nav__link">
+    Executing for rows affected
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#executing-for-generated-key" title="Executing for generated key" class="md-nav__link">
+    Executing for generated key
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#batch-updates-inserts-and-deletes" title="Batch updates, inserts and deletes" class="md-nav__link">
+    Batch updates, inserts and deletes
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+      
+      
+    </ul>
+  
+</nav>
+    
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../types/" title="Data types" class="md-nav__link">
+      Data types
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../rows/" title="Result Rows" class="md-nav__link">
+      Result Rows
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../exceptions/" title="Exceptions" class="md-nav__link">
+      Exceptions
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../frameworks/" title="Frameworks integration" class="md-nav__link">
+      Frameworks integration
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../utilities/" title="Utilities" class="md-nav__link">
+      Utilities
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../faq/" title="FAQ" class="md-nav__link">
+      FAQ
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../java/java/" title="Java API user guide" class="md-nav__link">
+      Java API user guide
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../drivers/" title="Drivers" class="md-nav__link">
+      Drivers
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../developer/" title="Developer guide" class="md-nav__link">
+      Developer guide
+    </a>
+  </li>
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary">
+  
+  
+  
+    <label class="md-nav__title" for="toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#statement-types" title="Statement types" class="md-nav__link">
+    Statement types
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#syntax" title="Syntax" class="md-nav__link">
+    Syntax
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#named-parameters" title="Named parameters" class="md-nav__link">
+    Named parameters
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#positional-parameters" title="Positional parameters" class="md-nav__link">
+    Positional parameters
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#creating-statements" title="Creating statements" class="md-nav__link">
+    Creating statements
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#bare-strings" title="Bare strings" class="md-nav__link">
+    Bare strings
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#string-interpolator" title="String interpolator" class="md-nav__link">
+    String interpolator
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#dynamic-sql" title="Dynamic SQL" class="md-nav__link">
+    Dynamic SQL
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#options" title="Options" class="md-nav__link">
+    Options
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#executing-statements" title="Executing statements" class="md-nav__link">
+    Executing statements
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#executing-for-a-result-set" title="Executing for a result set" class="md-nav__link">
+    Executing for a result set
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#streaming-results" title="Streaming results" class="md-nav__link">
+    Streaming results
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#executing-ignoring-results" title="Executing ignoring results" class="md-nav__link">
+    Executing ignoring results
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#executing-for-a-single-row-and-for-a-value" title="Executing for a single row and for a value" class="md-nav__link">
+    Executing for a single row and for a value
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#executing-for-rows-affected" title="Executing for rows affected" class="md-nav__link">
+    Executing for rows affected
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#executing-for-generated-key" title="Executing for generated key" class="md-nav__link">
+    Executing for generated key
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#batch-updates-inserts-and-deletes" title="Batch updates, inserts and deletes" class="md-nav__link">
+    Batch updates, inserts and deletes
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+      
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                  <a href="https://github.com/rdbc-io/rdbc/blob/master/rdbc-doc/docs/scala/statements.md" title="Edit this page" class="md-icon md-content__icon">edit</a>
+                
+                
+                  <h1>Statements</h1>
+                
+                <!---
+ ! Copyright 2016-2017 Krzysztof Pado
+ !
+ ! Licensed under the Apache License, Version 2.0 (the "License");
+ ! you may not use this file except in compliance with the License.
+ ! You may obtain a copy of the License at
+ !
+ !     http://www.apache.org/licenses/LICENSE-2.0
+ !
+ ! Unless required by applicable law or agreed to in writing, software
+ ! distributed under the License is distributed on an "AS IS" BASIS,
+ ! WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ ! See the License for the specific language governing permissions and
+ ! limitations under the License. 
+ -->
+
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>rdbc project and this documentation is still a work in progress.
+It's not ready yet for production use.</p>
+</div>
+<h2 id="statement-types">Statement types<a class="headerlink" href="#statement-types" title="Permanent link">&para;</a></h2>
+<p>Statements are a core feature of rdbc API. They represent SQL pieces that are sent
+to a database for execution along with arguments, if any. There are two types
+of statements in rdbc: template statements and executable statements. Template
+statements can't be executed right away. To execute them you first need to bind argument
+for every parameter they declare. When filled with arguments, template statements
+create executable statements. Statements in rdbc are a representation database engine's
+<a href="https://en.wikipedia.org/wiki/Prepared_statement">prepared statements</a>.</p>
+<h2 id="syntax">Syntax<a class="headerlink" href="#syntax" title="Permanent link">&para;</a></h2>
+<p>There isn't much of a syntax to describe. The only thing in a statement syntax
+that rdbc adds to SQL is how parameters are defined. There are two kinds of
+parameters: named and positional.</p>
+<h3 id="named-parameters">Named parameters<a class="headerlink" href="#named-parameters" title="Permanent link">&para;</a></h3>
+<p>Named parameters:</p>
+<ul>
+<li>are alphanumeric identifiers,</li>
+<li>can be defined inside a query by prepending parameter identifier with a colon,</li>
+<li>can be placed only where database engine expects parameters as defined
+     by a database engine's prepared statement syntax,</li>
+<li>are ignored inside varchar literals, column aliases, comments, etc.,</li>
+<li>can be referenced by their name or by index (position).</li>
+</ul>
+<p>In the following statement just one parameter is declared: <code>login</code>:</p>
+<div class="codehilite"><pre><span></span><span class="k">select</span> <span class="o">*</span> <span class="k">from</span> <span class="n">users</span> <span class="k">where</span> <span class="n">username</span> <span class="o">=</span> <span class="p">:</span><span class="n">login</span>
+</pre></div>
+
+
+<p>A parameter can be used in multiple places. Statement below defines a single
+parameter: <code>name</code>, but this parameter is used in two places:</p>
+<div class="codehilite"><pre><span></span><span class="k">select</span> <span class="o">*</span> <span class="k">from</span> <span class="n">users</span> <span class="k">where</span> <span class="n">first_name</span> <span class="o">=</span> <span class="p">:</span><span class="n">name</span> <span class="k">or</span> <span class="n">middle_name</span> <span class="o">=</span> <span class="p">:</span><span class="n">name</span> 
+</pre></div>
+
+
+<p>The statement below doesn't declare any parameters. "fname" is inside a varchar
+literal and "mname" is part of a comment.</p>
+<div class="codehilite"><pre><span></span><span class="k">select</span> <span class="o">*</span> <span class="k">from</span> <span class="n">users</span> <span class="k">where</span> <span class="n">first_name</span> <span class="o">=</span> <span class="s1">&#39;:fname&#39;</span> <span class="c1">-- or middle_name = :mname</span>
+</pre></div>
+
+
+<h3 id="positional-parameters">Positional parameters<a class="headerlink" href="#positional-parameters" title="Permanent link">&para;</a></h3>
+<p>Positional parameters:</p>
+<ul>
+<li>can be defined inside a query by placing a question mark: <code>?</code>,</li>
+<li>can be placed only where database engine expects parameters as defined
+     by a database engine's prepared statement syntax,</li>
+<li>are ignored inside varchar literals, column aliases, comments, etc.,</li>
+<li>can be referenced only by their index (position).</li>
+</ul>
+<p>The following example statement uses two positional parameters:</p>
+<div class="codehilite"><pre><span></span><span class="k">select</span> <span class="o">*</span> <span class="k">from</span> <span class="n">users</span> <span class="k">where</span> <span class="n">first_name</span> <span class="o">=</span> <span class="o">?</span> <span class="k">or</span> <span class="n">middle_name</span> <span class="o">=</span> <span class="o">?</span> 
+</pre></div>
+
+
+<p>The statement below doesn't declare any parameters. The first question mark is 
+inside a varchar literal and the second is part of a comment.</p>
+<div class="codehilite"><pre><span></span><span class="k">select</span> <span class="o">*</span> <span class="k">from</span> <span class="n">users</span> <span class="k">where</span> <span class="n">first_name</span> <span class="o">=</span> <span class="s1">&#39;?&#39;</span> <span class="c1">-- or middle_name = ?</span>
+</pre></div>
+
+
+<h2 id="creating-statements">Creating statements<a class="headerlink" href="#creating-statements" title="Permanent link">&para;</a></h2>
+<h3 id="bare-strings">Bare strings<a class="headerlink" href="#bare-strings" title="Permanent link">&para;</a></h3>
+<p>Statement can be created using a bare string and then in a separate step be
+filled with arguments for execution. There is a <a href=""><code>statement</code></a> method defined in <code>Connection</code>
+trait that accepts a string, and returns a <a href=""><code>Statement</code></a> instance bound to the
+connection:</p>
+<div class="codehilite"><pre><span></span><span class="k">val</span> <span class="n">stmt</span><span class="k">:</span> <span class="kt">Statement</span> <span class="o">=</span> <span class="n">conn</span><span class="o">.</span><span class="n">statement</span><span class="o">(</span>
+ <span class="s">&quot;select * from users &quot;</span> <span class="o">+</span>
+ <span class="s">&quot;where (first_name = :name or last_name = :name) and age = :age&quot;</span>
+<span class="o">)</span>
+</pre></div>
+
+
+<p>Once you have a <code>Statement</code> object, you can bind values to its parameters:</p>
+<ul>
+<li>
+<p><strong>by name</strong></p>
+<p>To bind values to parameters by name, use <code>Statement</code>'s <code>bind</code> method that
+accepts a sequence of <code>(String, Any)</code> tuples, one for each parameter. Above
+statement's parameters could be bound to values like this:
+<code class="codehilite"><span class="n">stmt</span><span class="o">.</span><span class="n">bind</span><span class="o">(</span><span class="s">&quot;name&quot;</span> <span class="o">-&gt;</span> <span class="s">&quot;Casey&quot;</span><span class="o">,</span> <span class="s">&quot;age&quot;</span> <span class="o">-&gt;</span> <span class="mi">30</span><span class="o">)</span></code>.</p>
+<p>If you don't provide all parameter values when binding, a <code>MissingParamValException</code>
+will be thrown. If you provide value for a parameter that wasn't declared by
+the query, <a href=""><code>NoSuchParamException</code></a> will be thrown.</p>
+<p>Binding by name is available only if name parameters were used.</p>
+</li>
+<li>
+<p><strong>by index</strong></p>
+<p>There is a possibility to bind values to parameters by index - i.e. just
+provide a list of values and these values will be matched to every parameter
+occurrence. Arguments can be bound to the above query like this:
+<code class="codehilite"><span class="n">stmt</span><span class="o">.</span><span class="n">bind</span><span class="o">(</span><span class="s">&quot;Casey&quot;</span><span class="o">,</span> <span class="s">&quot;Casey&quot;</span><span class="o">,</span> <span class="mi">30</span><span class="o">)</span></code>.</p>
+<p>If you provide too many parameters <a href=""><code>TooManyParamsException</code></a> will be thrown.
+If you provide too few parameters <a href=""><code>MissingParamValException</code></a> will be thrown.</p>
+<p>This method of binding is the only one available if you used positional parameters.</p>
+</li>
+</ul>
+<p><strong>TODO describe what to do with statements without parameters.</strong></p>
+<h3 id="string-interpolator">String interpolator<a class="headerlink" href="#string-interpolator" title="Permanent link">&para;</a></h3>
+<p>Creating statements using simple strings and binding values to parameters in
+a separate step is flexible but this flexibility is not really needed in most
+cases. A preferred way of creating statements is by using <a href=""><code>sql</code></a>
+<a href="http://docs.scala-lang.org/overviews/core/string-interpolation.html">string interpolator</a>.</p>
+<p>You can get <code>sql</code> interpolator into scope either by importing everything from
+<code>io.rdbc.sapi</code> package by <code class="codehilite"><span class="k">import</span> <span class="nn">io.rdbc.sapi._</span></code> statement or selectively by
+<code class="codehilite"><span class="k">import</span> <span class="nn">io.rdbc.sapi.SqlInterpolator._</span></code> statement.</p>
+<p>Once you have it in scope, you can use it to declare parameters and bind values
+to them in one step, like this:</p>
+<div class="codehilite"><pre><span></span><span class="k">val</span> <span class="n">conn</span><span class="k">:</span> <span class="kt">Connection</span> <span class="o">=</span> <span class="o">???</span>
+
+<span class="k">def</span> <span class="n">findUsersStmt</span><span class="o">(</span><span class="n">name</span><span class="k">:</span> <span class="kt">String</span><span class="o">)</span><span class="k">:</span> <span class="kt">ExecutableStatement</span> <span class="o">=</span> <span class="o">{</span>
+   <span class="n">conn</span><span class="o">.</span><span class="n">statement</span><span class="o">(</span><span class="n">sql</span><span class="s">&quot;select * from users where name = $name&quot;</span><span class="o">)</span>
+<span class="o">}</span>
+</pre></div>
+
+
+<p>As you can see, when <code>sql</code> interpolator is used <code>Connection</code>'s <code>statement</code> method
+produces <code>ExecutableStatement</code>, so the statement already has values
+bound to its parameters. The above example is equivalent to the following, somewhat
+less concise snippet:</p>
+<div class="codehilite"><pre><span></span><span class="k">def</span> <span class="n">findUsersStmt</span><span class="o">(</span><span class="n">name</span><span class="k">:</span> <span class="kt">String</span><span class="o">)</span><span class="k">:</span> <span class="kt">ExecutableStatement</span> <span class="o">=</span> <span class="o">{</span>   
+    <span class="n">conn</span><span class="o">.</span><span class="n">statement</span><span class="o">(</span><span class="s">&quot;select * from users where name = ?&quot;</span><span class="o">)</span>
+        <span class="o">.</span><span class="n">bindByIdx</span><span class="o">(</span><span class="n">name</span><span class="o">)</span>
+<span class="o">}</span>
+</pre></div>
+
+
+<p>SQL parts created by <code>sql</code> interpolator can be concatenated in the same way you
+would concatenate plain strings:</p>
+<div class="codehilite"><pre><span></span><span class="k">def</span> <span class="n">findUsersStmt</span><span class="o">(</span><span class="n">name</span><span class="k">:</span> <span class="kt">String</span><span class="o">,</span> <span class="n">age</span><span class="k">:</span> <span class="kt">Int</span><span class="o">)</span><span class="k">:</span> <span class="kt">ExecutableStatement</span> <span class="o">=</span> <span class="o">{</span>
+  <span class="n">conn</span><span class="o">.</span><span class="n">statement</span><span class="o">(</span>
+   <span class="n">sql</span><span class="s">&quot;select * from users &quot;</span> <span class="o">+</span>
+   <span class="n">sql</span><span class="s">&quot;where (first_name = $name or last_name = $name) and age = $age&quot;</span>
+  <span class="o">)</span>
+<span class="o">}</span>
+</pre></div>
+
+
+<p>Important thing to understand is that when using <code>sql</code> interpolator you're still
+safe from creating SQL injection vulnerability. Parameter values are <strong>not</strong> passed
+in to the database as literals concatenated with the rest of the SQL.</p>
+<h4 id="dynamic-sql">Dynamic SQL<a class="headerlink" href="#dynamic-sql" title="Permanent link">&para;</a></h4>
+<p>Sometimes, most notably in tests or some one-time use scripts, it may be useful
+to create SQL dynamically, like this:</p>
+<div class="codehilite"><pre><span></span><span class="k">def</span> <span class="n">stmt</span><span class="o">(</span><span class="n">table</span><span class="k">:</span> <span class="kt">String</span><span class="o">,</span> <span class="n">name</span><span class="k">:</span> <span class="kt">String</span><span class="o">)</span><span class="k">:</span> <span class="kt">FutureExecutableStatement</span> <span class="o">=</span> <span class="o">{</span>
+  <span class="n">conn</span><span class="o">.</span><span class="n">statement</span><span class="o">(</span><span class="s">s&quot;select * from </span><span class="si">$table</span><span class="s"> where name = :name&quot;</span><span class="o">)</span>
+      <span class="o">.</span><span class="n">bind</span><span class="o">(</span><span class="s">&quot;name&quot;</span> <span class="o">-&gt;</span> <span class="n">name</span><span class="o">)</span>
+<span class="o">}</span>
+</pre></div>
+
+
+<p>If you want to create SQL dynamically and still benefit from <code>sql</code> interpolator
+features, use <code>#$</code> prefix for dynamic parts, like this:</p>
+<div class="codehilite"><pre><span></span><span class="k">def</span> <span class="n">sql</span><span class="o">(</span><span class="n">table</span><span class="k">:</span> <span class="kt">String</span><span class="o">,</span> <span class="n">name</span><span class="k">:</span> <span class="kt">String</span><span class="o">)</span><span class="k">:</span> <span class="kt">ExecutableStatement</span> <span class="o">=</span> <span class="o">{</span>
+  <span class="n">conn</span><span class="o">.</span><span class="n">statement</span><span class="o">(</span><span class="n">sql</span><span class="s">&quot;select * from #$table where name = $name&quot;</span><span class="o">)</span>
+<span class="o">}</span>
+</pre></div>
+
+
+<p>In the above example, only <code>$name</code> is a statement parameter, <code>#$table</code> will be
+simply replaced by <code>table</code> method parameter value.</p>
+<h3 id="options">Options<a class="headerlink" href="#options" title="Permanent link">&para;</a></h3>
+<p>When creating a statement you can provide options that can tweak statement's
+behavior. To pass options, use <code>Connection</code>'s <code>statement</code> methods that accept
+second argument of <a href=""><code>StatementOptions</code></a> type.</p>
+<p>The list below contains currently supported options:</p>
+<hr />
+<ul>
+<li>
+<p><strong>Option:</strong> <code>generatedKeyCols</code></p>
+<p>Controls statement behavior regarding returning keys generated by the
+ database when issuing update or insert statements.</p>
+<p><strong>Possible values</strong>:</p>
+<ul>
+<li><code>KeyColumns.All</code> &mdash; all columns with generated keys will be returned</li>
+<li><code>KeyColumns.None</code> &mdash; no columns with generated keys will be returned</li>
+<li><code>KeyColumns.named(cols: String*)</code> &mdash; only columns listed by name will be returned</li>
+</ul>
+<p><strong>Default value</strong>: <code>KeyColumns.None</code></p>
+</li>
+</ul>
+<hr />
+<p><code>StatementOptions</code> is a case class and in its companion object there is <code>Default</code>
+instance of it with the default option values. You can use this instance to
+tweak only some of the options using built-in <code>copy</code> method:</p>
+<div class="codehilite"><pre><span></span><span class="n">conn</span><span class="o">.</span><span class="n">statement</span><span class="o">(</span>
+  <span class="n">sql</span><span class="s">&quot;insert into users(name) values ($name)&quot;</span><span class="o">,</span>
+  <span class="nc">Default</span><span class="o">.</span><span class="n">copy</span><span class="o">(</span><span class="n">option1</span> <span class="k">=</span> <span class="n">value1</span><span class="o">,</span> <span class="n">option2</span> <span class="k">=</span> <span class="n">value2</span><span class="o">)</span>
+<span class="o">)</span>
+</pre></div>
+
+
+<h2 id="executing-statements">Executing statements<a class="headerlink" href="#executing-statements" title="Permanent link">&para;</a></h2>
+<p>Once you have an <code>ExecutableStatement</code> instance, you can execute it in a couple
+of different ways. The method of execution controls in what shape you get the
+results from the database. Paragraphs below describe methods of executing statements.</p>
+<h3 id="executing-for-a-result-set">Executing for a result set<a class="headerlink" href="#executing-for-a-result-set" title="Permanent link">&para;</a></h3>
+<p>Arguably the simplest method of execution that returns results is to execute
+statement for a result set. To do this, use <code>ExecutableStatement</code>'s
+<a href=""><code>executeForSet</code></a> method that returns <code>Future</code> of <a href=""><code>ResultSet</code></a>.</p>
+<p><code>ResultSet</code> gives you access to the rows as well as to the metadata like warnings
+issued by the DB engine, columns metadata and count of rows affected by the statement.
+It also implements <code>Traversable</code> trait providing a convenience method of traversing
+through the rows.</p>
+<p>Executing for set is simple, but be aware that for bigger sets you may encounter
+<code>OutOfMemoryError</code>s. All results are stored in memory, there is no paging of any
+kind. If you want to avoid this sort of problems, consider
+<a href="../statements/#streaming-results">streaming</a> the results.</p>
+<p>For the documentation on how to work with the resulting rows see
+<a href="../rows">Result Rows</a> chapter.</p>
+<p><strong>TODO example</strong></p>
+<h3 id="streaming-results">Streaming results<a class="headerlink" href="#streaming-results" title="Permanent link">&para;</a></h3>
+<p>To stream results from the database, use <code>ExecutableStatement</code>'s <a href=""><code>stream</code></a>
+method. This method returns <a href=""><code>RowPublisher</code></a> instance which implements
+reactive stream's <a href=""><code>Publisher</code></a> interface. Items published are rows represented
+by <code>Row</code> trait. For the documentation on how to work with the resulting rows see
+<a href="../rows">Result Rows</a> chapter.</p>
+<p>Here are a couple of things to know when working with streams:</p>
+<ul>
+<li>statement execution is deferred until publisher is subscribed to,</li>
+<li>a publisher can be subscribed to only once,</li>
+<li>after <code>stream</code> method is invoked, connection is considered busy and can be used
+     for other queries only after the stream completes or is cancelled,</li>
+<li>cancel is an asynchronous operation and reactive streams specification doesn't
+     provide a way of notifying a client that cancel operation completed. If clients
+     want to use the connection after stream cancellation, they must watch for
+     connection's <code>watchForIdle</code> <code>Future</code> completion before requesting any
+     subsequent operations.</li>
+</ul>
+<p>Processing streams is out of scope of this manual, for details please refer to
+documentation of libraries that are built to facilitate this, like
+<a href="">Akka stream</a> or <a href="">Monix</a>.</p>
+<p><strong>TODO describe how to release connection after stream completion</strong></p>
+<p><strong>TODO example</strong></p>
+<h3 id="executing-ignoring-results">Executing ignoring results<a class="headerlink" href="#executing-ignoring-results" title="Permanent link">&para;</a></h3>
+<p>In many cases clients are not interested in any result of statement execution
+other than simple "success" or "failure" information. This is often the case
+for <code>insert</code>, <code>update</code> and <code>delete</code> commands. This use case is covered by
+<code>ExecutableStatement</code>'s <code>execute</code> method which returns <code>Future</code> of <code>Unit</code>.</p>
+<div class="codehilite"><pre><span></span><span class="k">def</span> <span class="n">insertUser</span><span class="o">(</span><span class="n">name</span><span class="k">:</span> <span class="kt">String</span><span class="o">)</span><span class="k">:</span> <span class="kt">Future</span><span class="o">[</span><span class="kt">Unit</span><span class="o">]</span> <span class="k">=</span> <span class="o">{</span>
+  <span class="n">conn</span><span class="o">.</span><span class="n">statement</span><span class="o">(</span><span class="n">sql</span><span class="s">&quot;insert into users(name) values ($name)&quot;</span><span class="o">).</span><span class="n">execute</span><span class="o">()</span>
+<span class="o">}</span>
+</pre></div>
+
+
+<h3 id="executing-for-a-single-row-and-for-a-value">Executing for a single row and for a value<a class="headerlink" href="#executing-for-a-single-row-and-for-a-value" title="Permanent link">&para;</a></h3>
+<p>It is a common use case to expect just a single row to be returned by a query.
+For instance, when querying by a primary key. This can be easily achieved by
+using <code>ExecutableStatement</code>'s <a href=""><code>executeForFirstRow</code></a> method which returns
+a <code>Future</code> of <code>Option[Row]</code>. Returned <code>Option</code> is <code>None</code> in case when query
+doesn't return any results, otherwise, the first row is returned as a <code>Some</code>.</p>
+<p>Example:</p>
+<div class="codehilite"><pre><span></span><span class="k">def</span> <span class="n">findUser</span><span class="o">(</span><span class="n">login</span><span class="k">:</span> <span class="kt">String</span><span class="o">)</span><span class="k">:</span> <span class="kt">Future</span><span class="o">[</span><span class="kt">Option</span><span class="o">[</span><span class="kt">Row</span><span class="o">]]</span> <span class="k">=</span> <span class="o">{</span>
+  <span class="n">conn</span><span class="o">.</span><span class="n">statement</span><span class="o">(</span><span class="n">sql</span><span class="s">&quot;select * from users where login = $login&quot;</span><span class="o">)</span>
+      <span class="o">.</span><span class="n">executeForFirstRow</span><span class="o">()</span>
+<span class="o">}</span>
+</pre></div>
+
+
+<p>Sometimes, not even a single row is needed by a client, only a single column
+value, like user's name when searching by login. <a href=""><code>executeForValue</code></a> method
+comes in handy in these kind of situations. The method accepts  a function that
+is supposed to extract this single value from a returned row, if any.</p>
+<p>See the example below:</p>
+<div class="codehilite"><pre><span></span><span class="k">def</span> <span class="n">findUsersName</span><span class="o">(</span><span class="n">login</span><span class="k">:</span> <span class="kt">String</span><span class="o">)</span><span class="k">:</span> <span class="kt">Future</span><span class="o">[</span><span class="kt">Option</span><span class="o">[</span><span class="kt">String</span><span class="o">]]</span> <span class="k">=</span> <span class="o">{</span>
+  <span class="n">conn</span><span class="o">.</span><span class="n">statement</span><span class="o">(</span><span class="n">sql</span><span class="s">&quot;select name from users where login = $login&quot;</span><span class="o">)</span>
+      <span class="o">.</span><span class="n">executeForValue</span><span class="o">(</span><span class="n">r</span> <span class="k">=&gt;</span> <span class="n">r</span><span class="o">.</span><span class="n">str</span><span class="o">(</span><span class="s">&quot;name&quot;</span><span class="o">))</span>
+<span class="o">}</span>
+</pre></div>
+
+
+<p>For the documentation on how to work with the resulting rows see
+<a href="../rows">Result Rows</a> chapter.</p>
+<h3 id="executing-for-rows-affected">Executing for rows affected<a class="headerlink" href="#executing-for-rows-affected" title="Permanent link">&para;</a></h3>
+<p>When executing insert, update or delete statements it may be good to know
+how many rows were affected by the execution. A number of affected rows can be
+obtained when executing for set or by streaming but if it's the only information
+that is needed use <code>ExecutableStatement</code>'s <code>executeForRowsAffected</code> method
+which returns a <code>Future</code> of <code>Long</code>.</p>
+<p>See the example below:</p>
+<div class="codehilite"><pre><span></span><span class="k">def</span> <span class="n">updateNames</span><span class="o">(</span><span class="n">name</span><span class="k">:</span> <span class="kt">String</span><span class="o">,</span> <span class="n">age</span><span class="k">:</span> <span class="kt">Int</span><span class="o">)</span><span class="k">:</span> <span class="kt">Future</span><span class="o">[</span><span class="kt">Long</span><span class="o">]</span> <span class="k">=</span> <span class="o">{</span>
+  <span class="n">conn</span><span class="o">.</span><span class="n">statement</span><span class="o">(</span><span class="n">sql</span><span class="s">&quot;update users set name = $name where age = $age&quot;</span><span class="o">)</span>
+      <span class="o">.</span><span class="n">executeForRowsAffected</span><span class="o">()</span>
+<span class="o">}</span>
+</pre></div>
+
+
+<h3 id="executing-for-generated-key">Executing for generated key<a class="headerlink" href="#executing-for-generated-key" title="Permanent link">&para;</a></h3>
+<p>If you rely on primary keys being generated by the database when inserting
+new records you'll need just this one key as a result of the execution. If you
+need to get multiple generated values then use <code>executeForStream</code>, <code>executeForSet</code>
+or <code>executeForFirstRow</code> described above but for a single one, there is
+<a href=""><code>executeForKey</code></a> method. This method executes a statement and returns the first
+column of the first returned row (in most cases the result is going to be a single
+row with a single column anyway). The method is parametrized by a type of the key.</p>
+<p>A method in the example below inserts a new user and returns a generated UUID key.</p>
+<div class="codehilite"><pre><span></span><span class="k">def</span> <span class="n">insertUser</span><span class="o">(</span><span class="n">name</span><span class="k">:</span> <span class="kt">String</span><span class="o">,</span> <span class="n">age</span><span class="k">:</span> <span class="kt">Int</span><span class="o">)</span><span class="k">:</span> <span class="kt">Future</span><span class="o">[</span><span class="kt">UUID</span><span class="o">]</span> <span class="k">=</span> <span class="o">{</span>
+  <span class="n">conn</span><span class="o">.</span><span class="n">statement</span><span class="o">(</span>
+        <span class="n">sql</span><span class="s">&quot;insert into users(name, age) values($name, $age)&quot;</span><span class="o">,</span>
+        <span class="nc">StatementOptions</span><span class="o">.</span><span class="nc">ReturnGenKeys</span>
+  <span class="o">).</span><span class="n">executeForKey</span><span class="o">[</span><span class="kt">UUID</span><span class="o">]()</span>
+<span class="o">}</span>
+</pre></div>
+
+
+<h3 id="batch-updates-inserts-and-deletes">Batch updates, inserts and deletes<a class="headerlink" href="#batch-updates-inserts-and-deletes" title="Permanent link">&para;</a></h3>
+<p><strong>TODO</strong></p>
+                
+                  
+                
+              
+              
+                
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <div class="md-footer-nav">
+      <nav class="md-footer-nav__inner md-grid">
+        
+          <a href="../connection/" title="Working with a connection" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
+            </div>
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  Previous
+                </span>
+                Working with a connection
+              </span>
+            </div>
+          </a>
+        
+        
+          <a href="../types/" title="Data types" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  Next
+                </span>
+                Data types
+              </span>
+            </div>
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-forward md-footer-nav__button"></i>
+            </div>
+          </a>
+        
+      </nav>
+    </div>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+          <div class="md-footer-copyright__highlight">
+            Copyright &copy; 2016 - 2017 Krzysztof Pado
+          </div>
+        
+        powered by
+        <a href="http://www.mkdocs.org" title="MkDocs">MkDocs</a>
+        and
+        <a href="http://squidfunk.github.io/mkdocs-material/" title="Material for MkDocs">
+          Material for MkDocs</a>
+      </div>
+      
+        
+  <div class="md-footer-social">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    
+      <a href="https://github.com/rdbc-io" class="md-footer-social__link fa fa-github"></a>
+    
+      <a href="https://twitter.com/rdbc_io" class="md-footer-social__link fa fa-twitter"></a>
+    
+  </div>
+
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    
+      <script src="../../assets/javascripts/application-6b599127bc.js"></script>
+      <script>app.initialize({url:{base:"../.."}})</script>
+      
+    
+    
+      
+    
+  </body>
+</html>
