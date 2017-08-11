@@ -5,7 +5,6 @@
     
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
-      <meta http-equiv="x-ua-compatible" content="ie=edge">
       
       
       
@@ -14,20 +13,20 @@
       
         <link rel="shortcut icon" href="../../assets/images/favicon.png">
       
-      <meta name="generator" content="mkdocs-0.16.3, mkdocs-material-1.7.4">
+      <meta name="generator" content="mkdocs-0.16.3, mkdocs-material-1.6.1">
     
     
       
-        <title>Result Rows - rdbc documentation - 0.0.69</title>
+        <title>Result Rows - rdbc documentation - 0.0.70</title>
       
     
     
-      <script src="../../assets/javascripts/modernizr-1df76c4e58.js"></script>
+      <script src="../../assets/javascripts/modernizr-56ade86843.js"></script>
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/application-769c285a91.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/application-4d0d3f2fbf.css">
       
-        <link rel="stylesheet" href="../../assets/stylesheets/application-02c2a4388f.palette.css">
+        <link rel="stylesheet" href="../../assets/stylesheets/application-f78e5cb881.palette.css">
       
     
     
@@ -68,7 +67,7 @@
     <div class="md-flex">
       <div class="md-flex__cell md-flex__cell--shrink">
         
-          <a href="../.." title="rdbc documentation - 0.0.69" class="md-icon md-icon--home md-header-nav__button">
+          <a href="../.." title="rdbc documentation - 0.0.70" class="md-icon md-icon--home md-header-nav__button">
           </a>
         
       </div>
@@ -103,7 +102,7 @@
     </form>
     <div class="md-search__output">
       <div class="md-search__scrollwrap" data-md-scrollfix>
-        <div class="md-search-result" data-md-component="result" data-md-lang-search="">
+        <div class="md-search-result" data-md-component="result">
           <div class="md-search-result__meta" data-md-lang-result-none="No matching documents" data-md-lang-result-one="1 matching document" data-md-lang-result-other="# matching documents">
             Type to start searching
           </div>
@@ -115,9 +114,9 @@
 </div>
         
       </div>
-      
-        <div class="md-flex__cell md-flex__cell--shrink">
-          <div class="md-header-nav__source">
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <div class="md-header-nav__source">
+          
             
 
 
@@ -137,9 +136,9 @@
     </div>
   </a>
 
-          </div>
+          
         </div>
-      
+      </div>
     </div>
   </nav>
 </header>
@@ -159,7 +158,7 @@
     
       <i class="md-icon md-icon--home md-nav__button"></i>
     
-    rdbc documentation - 0.0.69
+    rdbc documentation - 0.0.70
   </label>
   
     <div class="md-nav__source">
@@ -336,42 +335,6 @@
 
 
   <li class="md-nav__item">
-    <a href="../exceptions/" title="Exceptions" class="md-nav__link">
-      Exceptions
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../frameworks/" title="Frameworks integration" class="md-nav__link">
-      Frameworks integration
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../utilities/" title="Utilities" class="md-nav__link">
-      Utilities
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
     <a href="../faq/" title="FAQ" class="md-nav__link">
       FAQ
     </a>
@@ -491,7 +454,8 @@
 <p>rdbc project and this documentation is still a work in progress.
 It's not ready yet for production use.</p>
 </div>
-<p>Statement rows are represented in rdbc as <a href=""><code>Row</code></a> trait. This chapter describes
+<p>Statement rows are represented in rdbc as
+<a href="https://javadoc.io/page/io.rdbc/rdbc-api-scala_2.12/0.0.70/io/rdbc/sapi/Row.html"><code>Row</code></a> trait. This chapter describes
 this trait and methods it provides that give access column values.</p>
 <h2 id="generic-methods">Generic methods<a class="headerlink" href="#generic-methods" title="Permanent link">&para;</a></h2>
 <p><code>Row</code> trait declares a family of <code>col</code> methods that allow accessing column
@@ -509,24 +473,55 @@ the list below for their simplified declarations.</p>
 <li>
 <p><strong>Named vs unnamed columns</strong></p>
 <p>To fetch column value by name use method that accepts a <code>String</code>;
- to fetch value by column's index, use the version that accepts an <code>Int</code>.</p>
+ to fetch value by column's index, use the version that accepts an <code>Int</code>.
+ Index is 0 based.</p>
 </li>
 <li>
 <p><strong>Null-safety</strong></p>
 <p><code>colOpt</code> methods are null-safe, and <code>col</code> methods aren't. You can't use
- plain <code>col</code> method to get SQL <code>NULL</code> values. If you try that, <a href=""><code>ConversionException</code></a>
+ plain <code>col</code> method to get SQL <code>NULL</code> values. If you try that,
+ <a href="https://javadoc.io/page/io.rdbc/rdbc-api-scala_2.12/0.0.70/io/rdbc/api/exceptions/ConversionException.html"><code>ConversionException</code></a>
  will be thrown. <code>colOpt</code> returns <code>Option</code> so it's fit for handling <code>NULL</code>s
  &mdash; it represents them by <code>None</code>. <code>col</code> method is intended to be used
  only for columns that can't hold <code>NULL</code> values, for example because there is
  a not-null constraint defined for them.</p>
 </li>
 </ul>
+<p>Examples below show how to use <code>col</code> methods on rows produced by </p>
+<div class="codehilite"><pre><span></span><span class="k">select</span> <span class="n">first_name</span><span class="p">,</span> <span class="n">last_name</span><span class="p">,</span> <span class="n">age</span> <span class="k">from</span> <span class="n">persons</span>
+</pre></div>
+
+
+<p>statement.</p>
+<div class="codehilite"><pre><span></span><span class="cm">/* fetches first_name. If value is NULL ConversionException will be thrown */</span>
+<span class="n">row</span><span class="o">.</span><span class="n">col</span><span class="o">[</span><span class="kt">String</span><span class="o">](</span><span class="mi">0</span><span class="o">)</span> 
+
+<span class="cm">/* fetches last_name. If value is NULL ConversionException will be thrown */</span>
+<span class="n">row</span><span class="o">.</span><span class="n">col</span><span class="o">[</span><span class="kt">String</span><span class="o">](</span><span class="s">&quot;first_name&quot;</span><span class="o">)</span>
+
+<span class="cm">/* fetches age. If value is NULL, None will be returned */</span>
+<span class="n">row</span><span class="o">.</span><span class="n">colOpt</span><span class="o">[</span><span class="kt">Int</span><span class="o">](</span><span class="mi">2</span><span class="o">)</span>
+</pre></div>
+
+
 <h2 id="type-specific-methods">Type-specific methods<a class="headerlink" href="#type-specific-methods" title="Permanent link">&para;</a></h2>
 <p><code>Row</code> trait, for convenience, also provides methods that aren't parametrized
 by type and their names reflect the type they return. They are simply shortcuts
 for calling generic <code>col</code> methods described earlier. For instance, there is a
 <code>str</code> method that is a shortcut for calling <code>col[String]</code> method. See the 
-<a href=""><code>Row</code> Scaladoc</a> for a complete list.</p>
+<a href="https://javadoc.io/page/io.rdbc/rdbc-api-scala_2.12/0.0.70/io/rdbc/sapi/Row.html"><code>Row</code> Scaladoc</a> for a complete list.</p>
+<p>Previous example could be rewritten as follows:</p>
+<div class="codehilite"><pre><span></span><span class="cm">/* fetches first_name. If value is NULL ConversionException will be thrown */</span>
+<span class="n">row</span><span class="o">.</span><span class="n">str</span><span class="o">(</span><span class="mi">0</span><span class="o">)</span> 
+
+<span class="cm">/* fetches last_name. If value is NULL ConversionException will be thrown */</span>
+<span class="n">row</span><span class="o">.</span><span class="n">str</span><span class="o">(</span><span class="s">&quot;first_name&quot;</span><span class="o">)</span>
+
+<span class="cm">/* fetches age. If value is NULL, None will be returned */</span>
+<span class="n">row</span><span class="o">.</span><span class="n">int</span><span class="o">(</span><span class="mi">2</span><span class="o">)</span>
+</pre></div>
+
+
 <p>If you want to use types supported by the particular driver but not supported
 by default by rdbc, you must always use generic <code>col</code> methods.</p>
                 
@@ -562,13 +557,13 @@ by default by rdbc, you must always use generic <code>col</code> methods.</p>
           </a>
         
         
-          <a href="../exceptions/" title="Exceptions" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+          <a href="../faq/" title="FAQ" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
             <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
               <span class="md-flex__ellipsis">
                 <span class="md-footer-nav__direction">
                   Next
                 </span>
-                Exceptions
+                FAQ
               </span>
             </div>
             <div class="md-flex__cell md-flex__cell--shrink">
@@ -612,9 +607,7 @@ by default by rdbc, you must always use generic <code>col</code> methods.</p>
       
     </div>
     
-      <script src="../../assets/javascripts/application-c35428f87f.js"></script>
-      
-      
+      <script src="../../assets/javascripts/application-6b599127bc.js"></script>
       <script>app.initialize({url:{base:"../.."}})</script>
       
     

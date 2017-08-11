@@ -4,7 +4,7 @@
     
     <url>
      <loc>/</loc>
-     <lastmod>2017-08-09</lastmod>
+     <lastmod>2017-08-13</lastmod>
      <changefreq>daily</changefreq>
     </url>
     
@@ -13,61 +13,43 @@
         
     <url>
      <loc>/scala/gettingstarted/</loc>
-     <lastmod>2017-08-09</lastmod>
+     <lastmod>2017-08-13</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>/scala/core_concepts/</loc>
-     <lastmod>2017-08-09</lastmod>
+     <lastmod>2017-08-13</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>/scala/connection/</loc>
-     <lastmod>2017-08-09</lastmod>
+     <lastmod>2017-08-13</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>/scala/statements/</loc>
-     <lastmod>2017-08-09</lastmod>
+     <lastmod>2017-08-13</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>/scala/types/</loc>
-     <lastmod>2017-08-09</lastmod>
+     <lastmod>2017-08-13</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>/scala/rows/</loc>
-     <lastmod>2017-08-09</lastmod>
-     <changefreq>daily</changefreq>
-    </url>
-        
-    <url>
-     <loc>/scala/exceptions/</loc>
-     <lastmod>2017-08-09</lastmod>
-     <changefreq>daily</changefreq>
-    </url>
-        
-    <url>
-     <loc>/scala/frameworks/</loc>
-     <lastmod>2017-08-09</lastmod>
-     <changefreq>daily</changefreq>
-    </url>
-        
-    <url>
-     <loc>/scala/utilities/</loc>
-     <lastmod>2017-08-09</lastmod>
+     <lastmod>2017-08-13</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>/scala/faq/</loc>
-     <lastmod>2017-08-09</lastmod>
+     <lastmod>2017-08-13</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
@@ -76,7 +58,7 @@
     
     <url>
      <loc>/java/java/</loc>
-     <lastmod>2017-08-09</lastmod>
+     <lastmod>2017-08-13</lastmod>
      <changefreq>daily</changefreq>
     </url>
     
@@ -84,7 +66,7 @@
     
     <url>
      <loc>/drivers/</loc>
-     <lastmod>2017-08-09</lastmod>
+     <lastmod>2017-08-13</lastmod>
      <changefreq>daily</changefreq>
     </url>
     
@@ -92,7 +74,7 @@
     
     <url>
      <loc>/examples/</loc>
-     <lastmod>2017-08-09</lastmod>
+     <lastmod>2017-08-13</lastmod>
      <changefreq>daily</changefreq>
     </url>
     

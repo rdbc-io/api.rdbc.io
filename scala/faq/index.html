@@ -5,7 +5,6 @@
     
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
-      <meta http-equiv="x-ua-compatible" content="ie=edge">
       
       
       
@@ -14,20 +13,20 @@
       
         <link rel="shortcut icon" href="../../assets/images/favicon.png">
       
-      <meta name="generator" content="mkdocs-0.16.3, mkdocs-material-1.7.4">
+      <meta name="generator" content="mkdocs-0.16.3, mkdocs-material-1.6.1">
     
     
       
-        <title>FAQ - rdbc documentation - 0.0.69</title>
+        <title>FAQ - rdbc documentation - 0.0.70</title>
       
     
     
-      <script src="../../assets/javascripts/modernizr-1df76c4e58.js"></script>
+      <script src="../../assets/javascripts/modernizr-56ade86843.js"></script>
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/application-769c285a91.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/application-4d0d3f2fbf.css">
       
-        <link rel="stylesheet" href="../../assets/stylesheets/application-02c2a4388f.palette.css">
+        <link rel="stylesheet" href="../../assets/stylesheets/application-f78e5cb881.palette.css">
       
     
     
@@ -68,7 +67,7 @@
     <div class="md-flex">
       <div class="md-flex__cell md-flex__cell--shrink">
         
-          <a href="../.." title="rdbc documentation - 0.0.69" class="md-icon md-icon--home md-header-nav__button">
+          <a href="../.." title="rdbc documentation - 0.0.70" class="md-icon md-icon--home md-header-nav__button">
           </a>
         
       </div>
@@ -103,7 +102,7 @@
     </form>
     <div class="md-search__output">
       <div class="md-search__scrollwrap" data-md-scrollfix>
-        <div class="md-search-result" data-md-component="result" data-md-lang-search="">
+        <div class="md-search-result" data-md-component="result">
           <div class="md-search-result__meta" data-md-lang-result-none="No matching documents" data-md-lang-result-one="1 matching document" data-md-lang-result-other="# matching documents">
             Type to start searching
           </div>
@@ -115,9 +114,9 @@
 </div>
         
       </div>
-      
-        <div class="md-flex__cell md-flex__cell--shrink">
-          <div class="md-header-nav__source">
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <div class="md-header-nav__source">
+          
             
 
 
@@ -137,9 +136,9 @@
     </div>
   </a>
 
-          </div>
+          
         </div>
-      
+      </div>
     </div>
   </nav>
 </header>
@@ -159,7 +158,7 @@
     
       <i class="md-icon md-icon--home md-nav__button"></i>
     
-    rdbc documentation - 0.0.69
+    rdbc documentation - 0.0.70
   </label>
   
     <div class="md-nav__source">
@@ -295,42 +294,6 @@
           
           
 
-
-  <li class="md-nav__item">
-    <a href="../exceptions/" title="Exceptions" class="md-nav__link">
-      Exceptions
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../frameworks/" title="Frameworks integration" class="md-nav__link">
-      Frameworks integration
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../utilities/" title="Utilities" class="md-nav__link">
-      Utilities
-    </a>
-  </li>
-
-        
-          
-          
-          
-
   
 
 
@@ -442,13 +405,12 @@ It's not ready yet for production use.</p>
 <ol>
 <li>
 <p><strong>I have plenty of time, I don't want to use any timeout for any of my queries. What can I do?</strong></p>
-<p>Import <code>Timeout</code> instance of infinite duration either by importing <code>io.rdbc.sapi._</code>
-  or directly <code>io.rdbc.sapi.Timeout.Implicits.inf</code>.</p>
+<p>Declare implicit <code>Timeout</code> instance of infinite duration &mdash; <code>io.rdbc.sapi.Timeout.Inf</code>.</p>
 <hr />
 </li>
 <li>
 <p><strong>How do I build SQL dynamically using <code>sql</code> interpolator?</strong></p>
-<p>Use special <code>#$</code> prefix for the dynamic parts. See <a href="">this</a>
+<p>Use special <code>#$</code> prefix for the dynamic parts. See <a href="../statements/#dynamic-sql">this</a>
   paragraph for details.</p>
 <hr />
 </li>
@@ -479,7 +441,7 @@ It's not ready yet for production use.</p>
 <li>
 <p><strong>I'm executing insert statement and trying to get auto-generated key from the DB but nothing is returned. What am I doing wrong?</strong></p>
 <p>You probably forgot to set a <code>generatedKeyCols</code> statement option accordingly.
-  See <a href="">this</a> paragraph for details.</p>
+  See <a href="../statements/#options">this</a> paragraph for details.</p>
 </li>
 </ol>
                 
@@ -500,7 +462,7 @@ It's not ready yet for production use.</p>
     <div class="md-footer-nav">
       <nav class="md-footer-nav__inner md-grid">
         
-          <a href="../utilities/" title="Utilities" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+          <a href="../rows/" title="Result Rows" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
             <div class="md-flex__cell md-flex__cell--shrink">
               <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
             </div>
@@ -509,7 +471,7 @@ It's not ready yet for production use.</p>
                 <span class="md-footer-nav__direction">
                   Previous
                 </span>
-                Utilities
+                Result Rows
               </span>
             </div>
           </a>
@@ -565,9 +527,7 @@ It's not ready yet for production use.</p>
       
     </div>
     
-      <script src="../../assets/javascripts/application-c35428f87f.js"></script>
-      
-      
+      <script src="../../assets/javascripts/application-6b599127bc.js"></script>
       <script>app.initialize({url:{base:"../.."}})</script>
       
     

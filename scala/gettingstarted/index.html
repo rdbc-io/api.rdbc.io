@@ -5,7 +5,6 @@
     
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
-      <meta http-equiv="x-ua-compatible" content="ie=edge">
       
       
       
@@ -14,20 +13,20 @@
       
         <link rel="shortcut icon" href="../../assets/images/favicon.png">
       
-      <meta name="generator" content="mkdocs-0.16.3, mkdocs-material-1.7.4">
+      <meta name="generator" content="mkdocs-0.16.3, mkdocs-material-1.6.1">
     
     
       
-        <title>Getting started - rdbc documentation - 0.0.69</title>
+        <title>Getting started - rdbc documentation - 0.0.70</title>
       
     
     
-      <script src="../../assets/javascripts/modernizr-1df76c4e58.js"></script>
+      <script src="../../assets/javascripts/modernizr-56ade86843.js"></script>
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/application-769c285a91.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/application-4d0d3f2fbf.css">
       
-        <link rel="stylesheet" href="../../assets/stylesheets/application-02c2a4388f.palette.css">
+        <link rel="stylesheet" href="../../assets/stylesheets/application-f78e5cb881.palette.css">
       
     
     
@@ -68,7 +67,7 @@
     <div class="md-flex">
       <div class="md-flex__cell md-flex__cell--shrink">
         
-          <a href="../.." title="rdbc documentation - 0.0.69" class="md-icon md-icon--home md-header-nav__button">
+          <a href="../.." title="rdbc documentation - 0.0.70" class="md-icon md-icon--home md-header-nav__button">
           </a>
         
       </div>
@@ -103,7 +102,7 @@
     </form>
     <div class="md-search__output">
       <div class="md-search__scrollwrap" data-md-scrollfix>
-        <div class="md-search-result" data-md-component="result" data-md-lang-search="">
+        <div class="md-search-result" data-md-component="result">
           <div class="md-search-result__meta" data-md-lang-result-none="No matching documents" data-md-lang-result-one="1 matching document" data-md-lang-result-other="# matching documents">
             Type to start searching
           </div>
@@ -115,9 +114,9 @@
 </div>
         
       </div>
-      
-        <div class="md-flex__cell md-flex__cell--shrink">
-          <div class="md-header-nav__source">
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <div class="md-header-nav__source">
+          
             
 
 
@@ -137,9 +136,9 @@
     </div>
   </a>
 
-          </div>
+          
         </div>
-      
+      </div>
     </div>
   </nav>
 </header>
@@ -159,7 +158,7 @@
     
       <i class="md-icon md-icon--home md-nav__button"></i>
     
-    rdbc documentation - 0.0.69
+    rdbc documentation - 0.0.70
   </label>
   
     <div class="md-nav__source">
@@ -377,42 +376,6 @@
 
 
   <li class="md-nav__item">
-    <a href="../exceptions/" title="Exceptions" class="md-nav__link">
-      Exceptions
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../frameworks/" title="Frameworks integration" class="md-nav__link">
-      Frameworks integration
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../utilities/" title="Utilities" class="md-nav__link">
-      Utilities
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
     <a href="../faq/" title="FAQ" class="md-nav__link">
       FAQ
     </a>
@@ -588,7 +551,7 @@ Java 8 runtime.</p>
 <h3 id="sbt">SBT<a class="headerlink" href="#sbt" title="Permanent link">&para;</a></h3>
 <p>For sbt projects, add the following to <code>build.sbt</code>:</p>
 <div class="codehilite"><pre><span></span><span class="n">libraryDependencies</span> <span class="o">++=</span> <span class="nc">Vector</span><span class="o">(</span>
-  <span class="s">&quot;io.rdbc&quot;</span> <span class="o">%%</span> <span class="s">&quot;rdbc-api-scala&quot;</span> <span class="o">%</span> <span class="s">&quot;0.0.69&quot;</span><span class="o">,</span>
+  <span class="s">&quot;io.rdbc&quot;</span> <span class="o">%%</span> <span class="s">&quot;rdbc-api-scala&quot;</span> <span class="o">%</span> <span class="s">&quot;0.0.70&quot;</span><span class="o">,</span>
   <span class="c1">//here goes the driver dependency</span>
 <span class="o">)</span>
 </pre></div>
@@ -597,13 +560,13 @@ Java 8 runtime.</p>
 <h3 id="gradle">Gradle<a class="headerlink" href="#gradle" title="Permanent link">&para;</a></h3>
 <p>For Gradle projects, add the following to the <code>dependencies</code> section of <code>build.gradle</code>:</p>
 <p>Scala 2.12</p>
-<div class="codehilite"><pre><span></span><span class="n">compile</span> <span class="nl">group:</span> <span class="s1">&#39;io.rdbc&#39;</span><span class="o">,</span> <span class="nl">name:</span> <span class="s1">&#39;rdbc-api-scala_2.12&#39;</span><span class="o">,</span> <span class="nl">version:</span> <span class="s1">&#39;0.0.69&#39;</span>
+<div class="codehilite"><pre><span></span><span class="n">compile</span> <span class="nl">group:</span> <span class="s1">&#39;io.rdbc&#39;</span><span class="o">,</span> <span class="nl">name:</span> <span class="s1">&#39;rdbc-api-scala_2.12&#39;</span><span class="o">,</span> <span class="nl">version:</span> <span class="s1">&#39;0.0.70&#39;</span>
 <span class="n">compile</span> <span class="c1">//here goes the driver dependency</span>
 </pre></div>
 
 
 <p>Scala 2.11</p>
-<div class="codehilite"><pre><span></span><span class="n">compile</span> <span class="nl">group:</span> <span class="s1">&#39;io.rdbc&#39;</span><span class="o">,</span> <span class="nl">name:</span> <span class="s1">&#39;rdbc-api-scala_2.11&#39;</span><span class="o">,</span> <span class="nl">version:</span> <span class="s1">&#39;0.0.69&#39;</span>
+<div class="codehilite"><pre><span></span><span class="n">compile</span> <span class="nl">group:</span> <span class="s1">&#39;io.rdbc&#39;</span><span class="o">,</span> <span class="nl">name:</span> <span class="s1">&#39;rdbc-api-scala_2.11&#39;</span><span class="o">,</span> <span class="nl">version:</span> <span class="s1">&#39;0.0.70&#39;</span>
 <span class="n">compile</span> <span class="c1">//here goes the driver dependency</span>
 </pre></div>
 
@@ -614,7 +577,7 @@ Java 8 runtime.</p>
 <div class="codehilite"><pre><span></span><span class="nt">&lt;dependency&gt;</span>
   <span class="nt">&lt;groupId&gt;</span>io.rdbc<span class="nt">&lt;/groupId&gt;</span>
   <span class="nt">&lt;artifactId&gt;</span>rdbc-api-scala_2.12<span class="nt">&lt;/artifactId&gt;</span>
-  <span class="nt">&lt;version&gt;</span>0.0.69<span class="nt">&lt;/version&gt;</span>
+  <span class="nt">&lt;version&gt;</span>0.0.70<span class="nt">&lt;/version&gt;</span>
 <span class="nt">&lt;/dependency&gt;</span>
 <span class="nt">&lt;dependency&gt;</span>
   <span class="c">&lt;!-- here goes the driver dependency --&gt;</span>
@@ -626,7 +589,7 @@ Java 8 runtime.</p>
 <div class="codehilite"><pre><span></span><span class="nt">&lt;dependency&gt;</span>
   <span class="nt">&lt;groupId&gt;</span>io.rdbc<span class="nt">&lt;/groupId&gt;</span>
   <span class="nt">&lt;artifactId&gt;</span>rdbc-api-scala_2.11<span class="nt">&lt;/artifactId&gt;</span>
-  <span class="nt">&lt;version&gt;</span>0.0.69<span class="nt">&lt;/version&gt;</span>
+  <span class="nt">&lt;version&gt;</span>0.0.70<span class="nt">&lt;/version&gt;</span>
 <span class="nt">&lt;/dependency&gt;</span>
 <span class="nt">&lt;dependency&gt;</span>
   <span class="c">&lt;!-- here goes the driver dependency --&gt;</span>
@@ -710,7 +673,7 @@ inserts a "Hello world!" greeting into a <code>messages</code> database table. <
 <ul>
 <li>
 <p>At line <code>10</code> a
-   <a href="../https://javadoc.io/page/io.rdbc/rdbc-api-scala_2.12/0.0.69/io/rdbc/sapi/ConnectionFactory.html"><code>ConnectionFactory</code></a>
+   <a href="https://javadoc.io/page/io.rdbc/rdbc-api-scala_2.12/0.0.70/io/rdbc/sapi/ConnectionFactory.html"><code>ConnectionFactory</code></a>
    coming from a driver package should be instantiated. Each rdbc driver provides
    an implementation of this trait that allows to estabilish a connection to a database.
    <code>ConnectionFactory</code> implementation and classes needed for its configuration should
@@ -723,7 +686,7 @@ inserts a "Hello world!" greeting into a <code>messages</code> database table. <
 <li>
 <p>In this code block, at line <code>15</code> a prepared statement is requested to be
    created using a
-   <a href="../https://javadoc.io/page/io.rdbc/rdbc-api-scala_2.12/0.0.69/io/rdbc/sapi/SqlInterpolatorTrait$SqlInterpolator.html#sql(args:Any*):io.rdbc.sapi.SqlWithParams"><code>sql</code></a>
+   <a href="https://javadoc.io/page/io.rdbc/rdbc-api-scala_2.12/0.0.70/io/rdbc/sapi/SqlInterpolatorTrait$SqlInterpolator.html#sql(args:Any*):io.rdbc.sapi.SqlWithParams"><code>sql</code></a>
    <a href="http://docs.scala-lang.org/overviews/core/string-interpolation.html">string interpolator</a>
    which passes a <code>greeting</code> string argument to it.</p>
 </li>
@@ -746,7 +709,7 @@ inserts a "Hello world!" greeting into a <code>messages</code> database table. <
 </ul>
 <h2 id="scaladoc">Scaladoc<a class="headerlink" href="#scaladoc" title="Permanent link">&para;</a></h2>
 <p>You can browse Scaladoc using javadoc.io site 
-<a href="https://javadoc.io/doc/io.rdbc/rdbc-api-scala_2.12/0.0.69">here</a>. The site
+<a href="https://javadoc.io/doc/io.rdbc/rdbc-api-scala_2.12/0.0.70">here</a>. The site
 allows to switch between Scala versions and rdbc versions.</p>
                 
                   
@@ -831,9 +794,7 @@ allows to switch between Scala versions and rdbc versions.</p>
       
     </div>
     
-      <script src="../../assets/javascripts/application-c35428f87f.js"></script>
-      
-      
+      <script src="../../assets/javascripts/application-6b599127bc.js"></script>
       <script>app.initialize({url:{base:"../.."}})</script>
       
     
