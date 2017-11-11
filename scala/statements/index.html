@@ -1,39 +1,51 @@
 
+
+
+
 <!DOCTYPE html>
 <html lang="en" class="no-js">
   <head>
     
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
+      <meta http-equiv="x-ua-compatible" content="ie=edge">
       
       
       
         <meta name="author" content="Krzysztof Pado">
       
       
-        <link rel="shortcut icon" href="../../assets/images/favicon.png">
+        <meta name="lang:clipboard.copy" content="Copy to clipboard">
       
-      <meta name="generator" content="mkdocs-0.16.3, mkdocs-material-1.6.1">
+        <meta name="lang:clipboard.copied" content="Copied to clipboard">
+      
+        <meta name="lang:search.language" content="en">
+      
+        <meta name="lang:search.result.none" content="No matching documents">
+      
+        <meta name="lang:search.result.one" content="1 matching document">
+      
+        <meta name="lang:search.result.other" content="# matching documents">
+      
+        <meta name="lang:search.tokenizer" content="[\s\-]+">
+      
+      <link rel="shortcut icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-0.17.1, mkdocs-material-2.0.4">
     
     
       
-        <title>Statements - rdbc documentation - 0.0.72</title>
+        <title>Statements - rdbc documentation - 0.0.75</title>
       
     
     
-      <script src="../../assets/javascripts/modernizr-56ade86843.js"></script>
-    
-    
-      <link rel="stylesheet" href="../../assets/stylesheets/application-4d0d3f2fbf.css">
-      
-        <link rel="stylesheet" href="../../assets/stylesheets/application-f78e5cb881.palette.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/application-709eec9410.css">
       
     
     
+      <script src="../../assets/javascripts/modernizr-e826f8942a.js"></script>
+    
+    
       
-        
-        
-        
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700|Roboto+Mono">
         <style>body,input{font-family:"Roboto","Helvetica Neue",Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono","Courier New",Courier,monospace}</style>
       
@@ -45,10 +57,7 @@
     
   </head>
   
-  
-  
-  
-    <body data-md-color-primary="green" data-md-color-accent="red">
+    <body>
   
     <svg class="md-svg">
       <defs>
@@ -66,10 +75,11 @@
   <nav class="md-header-nav md-grid">
     <div class="md-flex">
       <div class="md-flex__cell md-flex__cell--shrink">
-        
-          <a href="../.." title="rdbc documentation - 0.0.72" class="md-icon md-icon--home md-header-nav__button">
-          </a>
-        
+        <a href="../.." title="rdbc documentation - 0.0.75" class="md-header-nav__button md-logo">
+          
+            <i class="md-icon"></i>
+          
+        </a>
       </div>
       <div class="md-flex__cell md-flex__cell--shrink">
         <label class="md-icon md-icon--menu md-header-nav__button" for="drawer"></label>
@@ -90,20 +100,21 @@
       </div>
       <div class="md-flex__cell md-flex__cell--shrink">
         
-          <label class="md-icon md-icon--search md-header-nav__button" for="search"></label>
           
-<div class="md-search" data-md-component="search">
+            <label class="md-icon md-icon--search md-header-nav__button" for="search"></label>
+            
+<div class="md-search" data-md-component="search" role="dialog">
   <label class="md-search__overlay" for="search"></label>
   <div class="md-search__inner">
     <form class="md-search__form" name="search">
-      <input type="text" class="md-search__input" name="query" required placeholder="Search" accesskey="s" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="query">
+      <input type="text" class="md-search__input" name="query" required placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="query">
       <label class="md-icon md-search__icon" for="search"></label>
-      <button type="reset" class="md-icon md-search__icon" data-md-component="reset">close</button>
+      <button type="reset" class="md-icon md-search__icon" data-md-component="reset">&#xE5CD;</button>
     </form>
     <div class="md-search__output">
       <div class="md-search__scrollwrap" data-md-scrollfix>
         <div class="md-search-result" data-md-component="result">
-          <div class="md-search-result__meta" data-md-lang-result-none="No matching documents" data-md-lang-result-one="1 matching document" data-md-lang-result-other="# matching documents">
+          <div class="md-search-result__meta">
             Type to start searching
           </div>
           <ol class="md-search-result__list"></ol>
@@ -112,18 +123,19 @@
     </div>
   </div>
 </div>
+          
         
       </div>
-      <div class="md-flex__cell md-flex__cell--shrink">
-        <div class="md-header-nav__source">
-          
+      
+        <div class="md-flex__cell md-flex__cell--shrink">
+          <div class="md-header-nav__source">
             
 
 
   
 
 
-  <a href="https://github.com/rdbc-io/rdbc" title="Go to repository" class="md-source" data-md-source="github">
+  <a href="https://github.com/rdbc-io/rdbc/" title="Go to repository" class="md-source" data-md-source="github">
     
       <div class="md-source__icon">
         <svg viewBox="0 0 24 24" width="24" height="24">
@@ -136,15 +148,14 @@
     </div>
   </a>
 
-          
+          </div>
         </div>
-      </div>
+      
     </div>
   </nav>
 </header>
     
     <div class="md-container">
-      
       
       <main class="md-main">
         <div class="md-main__inner md-grid" data-md-component="container">
@@ -155,10 +166,12 @@
                   <div class="md-sidebar__inner">
                     <nav class="md-nav md-nav--primary" data-md-level="0">
   <label class="md-nav__title md-nav__title--site" for="drawer">
-    
-      <i class="md-icon md-icon--home md-nav__button"></i>
-    
-    rdbc documentation - 0.0.72
+    <span class="md-nav__button md-logo">
+      
+        <i class="md-icon"></i>
+      
+    </span>
+    rdbc documentation - 0.0.75
   </label>
   
     <div class="md-nav__source">
@@ -168,7 +181,7 @@
   
 
 
-  <a href="https://github.com/rdbc-io/rdbc" title="Go to repository" class="md-source" data-md-source="github">
+  <a href="https://github.com/rdbc-io/rdbc/" title="Go to repository" class="md-source" data-md-source="github">
     
       <div class="md-source__icon">
         <svg viewBox="0 0 24 24" width="24" height="24">
@@ -740,7 +753,7 @@
             <article class="md-content__inner md-typeset">
               
                 
-                  <a href="https://github.com/rdbc-io/rdbc/blob/master/rdbc-doc/docs/scala/statements.md" title="Edit this page" class="md-icon md-content__icon">edit</a>
+                  <a href="https://github.com/rdbc-io/rdbc/blob/master/rdbc-doc/docs/scala/statements.md" title="Edit this page" class="md-icon md-content__icon">&#xE3C9;</a>
                 
                 
                   <h1>Statements</h1>
@@ -761,11 +774,6 @@
  ! limitations under the License. 
  -->
 
-<div class="admonition warning">
-<p class="admonition-title">Warning</p>
-<p>rdbc project and this documentation is still a work in progress.
-It's not ready yet for production use.</p>
-</div>
 <h2 id="statement-types">Statement types<a class="headerlink" href="#statement-types" title="Permanent link">&para;</a></h2>
 <p>Statements are a core feature of rdbc API. They represent SQL pieces that are sent
 to a database for execution along with arguments, if any. There are two types
@@ -829,9 +837,9 @@ inside a varchar literal and the second is part of a comment.</p>
 <h3 id="bare-strings">Bare strings<a class="headerlink" href="#bare-strings" title="Permanent link">&para;</a></h3>
 <p>Statement can be created using a bare string and then in a separate step be
 filled with arguments for execution. There is a 
-<a href="https://javadoc.io/page/io.rdbc/rdbc-api-scala_2.12/0.0.72/io/rdbc/sapi/Connection.html#statement(sql:String):io.rdbc.sapi.Statement"><code>statement</code></a>
+<a href="https://javadoc.io/page/io.rdbc/rdbc-api-scala_2.12/0.0.75/io/rdbc/sapi/Connection.html#statement(sql:String):io.rdbc.sapi.Statement"><code>statement</code></a>
 method defined in <code>Connection</code> trait that accepts a string, and returns a
-<a href="https://javadoc.io/page/io.rdbc/rdbc-api-scala_2.12/0.0.72/io/rdbc/sapi/Statement.html"><code>Statement</code></a>
+<a href="https://javadoc.io/page/io.rdbc/rdbc-api-scala_2.12/0.0.75/io/rdbc/sapi/Statement.html"><code>Statement</code></a>
 instance bound to the connection:</p>
 <div class="codehilite"><pre><span></span><span class="k">val</span> <span class="n">stmt</span><span class="k">:</span> <span class="kt">Statement</span> <span class="o">=</span> <span class="n">conn</span><span class="o">.</span><span class="n">statement</span><span class="o">(</span>
  <span class="s">&quot;select * from users &quot;</span> <span class="o">+</span>
@@ -849,10 +857,10 @@ accepts a sequence of <code>(String, Any)</code> tuples, one for each parameter.
 statement's parameters could be bound to values like this:
 <code class="codehilite"><span class="n">stmt</span><span class="o">.</span><span class="n">bind</span><span class="o">(</span><span class="s">&quot;name&quot;</span> <span class="o">-&gt;</span> <span class="s">&quot;Casey&quot;</span><span class="o">,</span> <span class="s">&quot;age&quot;</span> <span class="o">-&gt;</span> <span class="mi">30</span><span class="o">)</span></code>.</p>
 <p>If you don't provide all parameter values when binding, a
-<a href="https://javadoc.io/page/io.rdbc/rdbc-api-scala_2.12/0.0.72/io/rdbc/api/exceptions/MissingParamValException.html"><code>MissingParamValException</code></a>
+<a href="https://javadoc.io/page/io.rdbc/rdbc-api-scala_2.12/0.0.75/io/rdbc/api/exceptions/MissingParamValException.html"><code>MissingParamValException</code></a>
 will be thrown. If you provide value for a parameter that wasn't declared by
 the query,
-<a href="https://javadoc.io/page/io.rdbc/rdbc-api-scala_2.12/0.0.72/io/rdbc/api/exceptions/NoSuchParamException.html"><code>NoSuchParamException</code></a>
+<a href="https://javadoc.io/page/io.rdbc/rdbc-api-scala_2.12/0.0.75/io/rdbc/api/exceptions/NoSuchParamException.html"><code>NoSuchParamException</code></a>
 will be thrown.</p>
 <p>Binding by name is available only if name parameters were used.</p>
 </li>
@@ -863,10 +871,10 @@ provide a list of values and these values will be matched to every parameter
 occurrence. Arguments can be bound to the above query like this:
 <code class="codehilite"><span class="n">stmt</span><span class="o">.</span><span class="n">bind</span><span class="o">(</span><span class="s">&quot;Casey&quot;</span><span class="o">,</span> <span class="s">&quot;Casey&quot;</span><span class="o">,</span> <span class="mi">30</span><span class="o">)</span></code>.</p>
 <p>If you provide too many parameters
-<a href="https://javadoc.io/page/io.rdbc/rdbc-api-scala_2.12/0.0.72/io/rdbc/api/exceptions/TooManyParamsException.html"><code>TooManyParamsException</code></a>
+<a href="https://javadoc.io/page/io.rdbc/rdbc-api-scala_2.12/0.0.75/io/rdbc/api/exceptions/TooManyParamsException.html"><code>TooManyParamsException</code></a>
 will be thrown.
 If you provide too few parameters
-<a href="https://javadoc.io/page/io.rdbc/rdbc-api-scala_2.12/0.0.72/io/rdbc/api/exceptions/MissingParamValException.html"><code>MissingParamValException</code></a>
+<a href="https://javadoc.io/page/io.rdbc/rdbc-api-scala_2.12/0.0.75/io/rdbc/api/exceptions/MissingParamValException.html"><code>MissingParamValException</code></a>
 will be thrown.</p>
 <p>This method of binding is the only one available if you used positional parameters.</p>
 </li>
@@ -877,7 +885,7 @@ passing any arguments to it.</p>
 <p>Creating statements using simple strings and binding values to parameters in
 a separate step is flexible but this flexibility is not really needed in most
 cases. A preferred way of creating statements is by using
-<a href="https://javadoc.io/page/io.rdbc/rdbc-api-scala_2.12/0.0.72/io/rdbc/sapi/SqlInterpolatorTrait$Sql.html#sql(args:Any*):io.rdbc.sapi.SqlWithParams"><code>sql</code></a>
+<a href="https://javadoc.io/page/io.rdbc/rdbc-api-scala_2.12/0.0.75/io/rdbc/sapi/SqlInterpolatorTrait$Sql.html#sql(args:Any*):io.rdbc.sapi.SqlWithParams"><code>sql</code></a>
 <a href="http://docs.scala-lang.org/overviews/core/string-interpolation.html">string interpolator</a>.</p>
 <p>You can get <code>sql</code> interpolator into scope either by importing everything from
 <code>io.rdbc.sapi</code> package by <code class="codehilite"><span class="k">import</span> <span class="nn">io.rdbc.sapi._</span></code> statement or selectively by
@@ -945,7 +953,7 @@ simply replaced by <code>table</code> method parameter value.</p>
 <p>When creating a statement you can provide options that can tweak statement's
 behavior. To pass options, use <code>Connection</code>'s <code>statement</code> methods that accept
 second argument of
-<a href="https://javadoc.io/page/io.rdbc/rdbc-api-scala_2.12/0.0.72/io/rdbc/sapi/StatementOptions$.html"><code>StatementOptions</code></a> type.</p>
+<a href="https://javadoc.io/page/io.rdbc/rdbc-api-scala_2.12/0.0.75/io/rdbc/sapi/StatementOptions$.html"><code>StatementOptions</code></a> type.</p>
 <p>The list below contains currently supported options:</p>
 <hr />
 <ul>
@@ -980,9 +988,9 @@ results from the database. Paragraphs below describe methods of executing statem
 <h3 id="executing-for-a-result-set">Executing for a result set<a class="headerlink" href="#executing-for-a-result-set" title="Permanent link">&para;</a></h3>
 <p>Arguably the simplest method of execution that returns results is to execute
 statement for a result set. To do this, use <code>ExecutableStatement</code>'s
-<a href="https://javadoc.io/page/io.rdbc/rdbc-api-scala_2.12/0.0.72/io/rdbc/sapi/ExecutableStatement.html#executeForSet()(implicittimeout:io.rdbc.sapi.Timeout):scala.concurrent.Future[io.rdbc.sapi.ResultSet]"><code>executeForSet</code></a>
+<a href="https://javadoc.io/page/io.rdbc/rdbc-api-scala_2.12/0.0.75/io/rdbc/sapi/ExecutableStatement.html#executeForSet()(implicittimeout:io.rdbc.sapi.Timeout):scala.concurrent.Future[io.rdbc.sapi.ResultSet]"><code>executeForSet</code></a>
 method that returns <code>Future</code> of
-<a href="https://javadoc.io/page/io.rdbc/rdbc-api-scala_2.12/0.0.72/io/rdbc/sapi/ResultSet.html"><code>ResultSet</code></a>.</p>
+<a href="https://javadoc.io/page/io.rdbc/rdbc-api-scala_2.12/0.0.75/io/rdbc/sapi/ResultSet.html"><code>ResultSet</code></a>.</p>
 <p><code>ResultSet</code> gives you access to the rows as well as to the metadata like warnings
 issued by the DB engine, columns metadata and count of rows affected by the statement.
 It also implements <code>Traversable</code> trait providing a convenience method of traversing
@@ -1001,9 +1009,9 @@ kind. If you want to avoid this sort of problems, consider
 
 <h3 id="streaming-results">Streaming results<a class="headerlink" href="#streaming-results" title="Permanent link">&para;</a></h3>
 <p>To stream results from the database, use <code>ExecutableStatement</code>'s
-<a href="https://javadoc.io/page/io.rdbc/rdbc-api-scala_2.12/0.0.72/io/rdbc/sapi/ExecutableStatement.html#stream()(implicittimeout:io.rdbc.sapi.Timeout):io.rdbc.sapi.RowPublisher"><code>stream</code></a>
+<a href="https://javadoc.io/page/io.rdbc/rdbc-api-scala_2.12/0.0.75/io/rdbc/sapi/ExecutableStatement.html#stream()(implicittimeout:io.rdbc.sapi.Timeout):io.rdbc.sapi.RowPublisher"><code>stream</code></a>
 method. This method returns
-<a href="https://javadoc.io/page/io.rdbc/rdbc-api-scala_2.12/0.0.72/io/rdbc/sapi/RowPublisher.html"><code>RowPublisher</code></a>
+<a href="https://javadoc.io/page/io.rdbc/rdbc-api-scala_2.12/0.0.75/io/rdbc/sapi/RowPublisher.html"><code>RowPublisher</code></a>
 instance which implements reactive stream's
 <a href="http://www.reactive-streams.org/reactive-streams-1.0.1-javadoc/"><code>Publisher</code></a>
 interface. <code>stream</code> method never throws exceptions &mdash; failures are reported by
@@ -1068,7 +1076,7 @@ for <code>insert</code>, <code>update</code> and <code>delete</code> commands. T
 <p>It is a common use case to expect just a single row to be returned by a query.
 For instance, when querying by a primary key. This can be easily achieved by
 using <code>ExecutableStatement</code>'s
-<a href="https://javadoc.io/page/io.rdbc/rdbc-api-scala_2.12/0.0.72/io/rdbc/sapi/ExecutableStatement.html#executeForFirstRow()(implicittimeout:io.rdbc.sapi.Timeout):scala.concurrent.Future[Option[io.rdbc.sapi.Row]]"><code>executeForFirstRow</code></a>
+<a href="https://javadoc.io/page/io.rdbc/rdbc-api-scala_2.12/0.0.75/io/rdbc/sapi/ExecutableStatement.html#executeForFirstRow()(implicittimeout:io.rdbc.sapi.Timeout):scala.concurrent.Future[Option[io.rdbc.sapi.Row]]"><code>executeForFirstRow</code></a>
 method which returns a <code>Future</code> of <code>Option[Row]</code>. Returned <code>Option</code> is <code>None</code>
 in case when query doesn't return any results, otherwise, the first row is
 returned as a <code>Some</code>.</p>
@@ -1082,7 +1090,7 @@ returned as a <code>Some</code>.</p>
 
 <p>Sometimes, not even a single row is needed by a client, only a single column
 value, like user's name when searching by login.
-<a href="https://javadoc.io/page/io.rdbc/rdbc-api-scala_2.12/0.0.72/io/rdbc/sapi/ExecutableStatement.html#executeForValue[A](valExtractor:io.rdbc.sapi.Row=&gt;A)(implicittimeout:io.rdbc.sapi.Timeout):scala.concurrent.Future[Option[A]]"><code>executeForValue</code></a>
+<a href="https://javadoc.io/page/io.rdbc/rdbc-api-scala_2.12/0.0.75/io/rdbc/sapi/ExecutableStatement.html#executeForValue[A](valExtractor:io.rdbc.sapi.Row=&gt;A)(implicittimeout:io.rdbc.sapi.Timeout):scala.concurrent.Future[Option[A]]"><code>executeForValue</code></a>
 method comes in handy in these kind of situations. The method accepts  a function
 that is supposed to extract this single value from a returned row, if any.</p>
 <p>See the example below:</p>
@@ -1100,7 +1108,7 @@ that is supposed to extract this single value from a returned row, if any.</p>
 how many rows were affected by the execution. A number of affected rows can be
 obtained when executing for set or by streaming but if it's the only information
 that is needed use <code>ExecutableStatement</code>'s 
-<a href="https://javadoc.io/page/io.rdbc/rdbc-api-scala_2.12/0.0.72/io/rdbc/sapi/ExecutableStatement.html#executeForRowsAffected()(implicittimeout:io.rdbc.sapi.Timeout):scala.concurrent.Future[Long]"><code>executeForRowsAffected</code></a>
+<a href="https://javadoc.io/page/io.rdbc/rdbc-api-scala_2.12/0.0.75/io/rdbc/sapi/ExecutableStatement.html#executeForRowsAffected()(implicittimeout:io.rdbc.sapi.Timeout):scala.concurrent.Future[Long]"><code>executeForRowsAffected</code></a>
 method which returns a <code>Future</code> of <code>Long</code>.</p>
 <p>See the example below:</p>
 <div class="codehilite"><pre><span></span><span class="k">def</span> <span class="n">updateNames</span><span class="o">(</span><span class="n">name</span><span class="k">:</span> <span class="kt">String</span><span class="o">,</span> <span class="n">age</span><span class="k">:</span> <span class="kt">Int</span><span class="o">)</span><span class="k">:</span> <span class="kt">Future</span><span class="o">[</span><span class="kt">Long</span><span class="o">]</span> <span class="k">=</span> <span class="o">{</span>
@@ -1115,7 +1123,7 @@ method which returns a <code>Future</code> of <code>Long</code>.</p>
 new records you'll need just this one key as a result of the execution. If you
 need to get multiple generated values then use <code>executeForStream</code>, <code>executeForSet</code>
 or <code>executeForFirstRow</code> described above but for a single one, there is
-<a href="https://javadoc.io/page/io.rdbc/rdbc-api-scala_2.12/0.0.72/io/rdbc/sapi/ExecutableStatement.html#executeForKey[K]()(implicitevidence$1:scala.reflect.ClassTag[K],implicittimeout:io.rdbc.sapi.Timeout):scala.concurrent.Future[K]"><code>executeForKey</code></a>
+<a href="https://javadoc.io/page/io.rdbc/rdbc-api-scala_2.12/0.0.75/io/rdbc/sapi/ExecutableStatement.html#executeForKey[K]()(implicitevidence$1:scala.reflect.ClassTag[K],implicittimeout:io.rdbc.sapi.Timeout):scala.concurrent.Future[K]"><code>executeForKey</code></a>
 method. This method executes a statement and returns the first column of the first
 returned row (in most cases the result is going to be a single row with a single
 column anyway). The method is parametrized by a type of the key.</p>
@@ -1268,8 +1276,9 @@ memory collections.</p>
       
     </div>
     
-      <script src="../../assets/javascripts/application-6b599127bc.js"></script>
-      <script>app.initialize({url:{base:"../.."}})</script>
+      <script src="../../assets/javascripts/application-8e4952e681.js"></script>
+      
+      <script>app.initialize({version:"0.17.1",url:{base:"../.."}})</script>
       
     
     
