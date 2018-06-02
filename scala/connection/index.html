@@ -21,6 +21,10 @@
       
         <meta name="lang:search.language" content="en">
       
+        <meta name="lang:search.pipeline.stopwords" content="True">
+      
+        <meta name="lang:search.pipeline.trimmer" content="True">
+      
         <meta name="lang:search.result.none" content="No matching documents">
       
         <meta name="lang:search.result.one" content="1 matching document">
@@ -30,21 +34,24 @@
         <meta name="lang:search.tokenizer" content="[\s\-]+">
       
       <link rel="shortcut icon" href="../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-0.17.1, mkdocs-material-2.0.4">
+      <meta name="generator" content="mkdocs-0.17.3, mkdocs-material-2.7.3">
     
     
       
-        <title>Working with a connection - rdbc documentation - 0.0.75</title>
+        <title>Working with a connection - rdbc documentation - 0.0.81</title>
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/application-709eec9410.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/application.8d40d89b.css">
+      
+        <link rel="stylesheet" href="../../assets/stylesheets/application-palette.6079476c.css">
       
     
     
-      <script src="../../assets/javascripts/modernizr-e826f8942a.js"></script>
+      <script src="../../assets/javascripts/modernizr.1aa3b519.js"></script>
     
     
+      <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
       
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700|Roboto+Mono">
         <style>body,input{font-family:"Roboto","Helvetica Neue",Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono","Courier New",Courier,monospace}</style>
@@ -57,25 +64,49 @@
     
   </head>
   
-    <body>
+    
+    
+    <body dir="ltr" data-md-color-primary="green" data-md-color-accent="red">
   
     <svg class="md-svg">
       <defs>
         
         
-          <svg xmlns="http://www.w3.org/2000/svg" width="416" height="448" viewBox="0 0 416 448" id="github"><path fill="currentColor" d="M160 304q0 10-3.125 20.5t-10.75 19T128 352t-18.125-8.5-10.75-19T96 304t3.125-20.5 10.75-19T128 256t18.125 8.5 10.75 19T160 304zm160 0q0 10-3.125 20.5t-10.75 19T288 352t-18.125-8.5-10.75-19T256 304t3.125-20.5 10.75-19T288 256t18.125 8.5 10.75 19T320 304zm40 0q0-30-17.25-51T296 232q-10.25 0-48.75 5.25Q229.5 240 208 240t-39.25-2.75Q130.75 232 120 232q-29.5 0-46.75 21T56 304q0 22 8 38.375t20.25 25.75 30.5 15 35 7.375 37.25 1.75h42q20.5 0 37.25-1.75t35-7.375 30.5-15 20.25-25.75T360 304zm56-44q0 51.75-15.25 82.75-9.5 19.25-26.375 33.25t-35.25 21.5-42.5 11.875-42.875 5.5T212 416q-19.5 0-35.5-.75t-36.875-3.125-38.125-7.5-34.25-12.875T37 371.5t-21.5-28.75Q0 312 0 260q0-59.25 34-99-6.75-20.5-6.75-42.5 0-29 12.75-54.5 27 0 47.5 9.875t47.25 30.875Q171.5 96 212 96q37 0 70 8 26.25-20.5 46.75-30.25T376 64q12.75 25.5 12.75 54.5 0 21.75-6.75 42 34 40 34 99.5z"/></svg>
+          <svg xmlns="http://www.w3.org/2000/svg" width="416" height="448"
+    viewBox="0 0 416 448" id="github">
+  <path fill="currentColor" d="M160 304q0 10-3.125 20.5t-10.75 19-18.125
+        8.5-18.125-8.5-10.75-19-3.125-20.5 3.125-20.5 10.75-19 18.125-8.5
+        18.125 8.5 10.75 19 3.125 20.5zM320 304q0 10-3.125 20.5t-10.75
+        19-18.125 8.5-18.125-8.5-10.75-19-3.125-20.5 3.125-20.5 10.75-19
+        18.125-8.5 18.125 8.5 10.75 19 3.125 20.5zM360
+        304q0-30-17.25-51t-46.75-21q-10.25 0-48.75 5.25-17.75 2.75-39.25
+        2.75t-39.25-2.75q-38-5.25-48.75-5.25-29.5 0-46.75 21t-17.25 51q0 22 8
+        38.375t20.25 25.75 30.5 15 35 7.375 37.25 1.75h42q20.5 0
+        37.25-1.75t35-7.375 30.5-15 20.25-25.75 8-38.375zM416 260q0 51.75-15.25
+        82.75-9.5 19.25-26.375 33.25t-35.25 21.5-42.5 11.875-42.875 5.5-41.75
+        1.125q-19.5 0-35.5-0.75t-36.875-3.125-38.125-7.5-34.25-12.875-30.25-20.25-21.5-28.75q-15.5-30.75-15.5-82.75
+        0-59.25 34-99-6.75-20.5-6.75-42.5 0-29 12.75-54.5 27 0 47.5 9.875t47.25
+        30.875q36.75-8.75 77.25-8.75 37 0 70 8 26.25-20.5
+        46.75-30.25t47.25-9.75q12.75 25.5 12.75 54.5 0 21.75-6.75 42 34 40 34
+        99.5z" />
+</svg>
         
       </defs>
     </svg>
-    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="drawer">
-    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="search">
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="search" autocomplete="off">
     <label class="md-overlay" data-md-component="overlay" for="drawer"></label>
+    
+      <a href="#connecting-to-a-database" tabindex="1" class="md-skip">
+        Skip to content
+      </a>
+    
     
       <header class="md-header" data-md-component="header">
   <nav class="md-header-nav md-grid">
     <div class="md-flex">
       <div class="md-flex__cell md-flex__cell--shrink">
-        <a href="../.." title="rdbc documentation - 0.0.75" class="md-header-nav__button md-logo">
+        <a href="../.." title="rdbc documentation - 0.0.81" class="md-header-nav__button md-logo">
           
             <i class="md-icon"></i>
           
@@ -85,18 +116,18 @@
         <label class="md-icon md-icon--menu md-header-nav__button" for="drawer"></label>
       </div>
       <div class="md-flex__cell md-flex__cell--stretch">
-        <span class="md-flex__ellipsis md-header-nav__title">
+        <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
           
             
-              
-                <span class="md-header-nav__parent">
-                  Scala API user guide
-                </span>
-              
+              <span class="md-header-nav__topic">
+                rdbc documentation - 0.0.81
+              </span>
+              <span class="md-header-nav__topic">
+                Working with a connection
+              </span>
             
-            Working with a connection
           
-        </span>
+        </div>
       </div>
       <div class="md-flex__cell md-flex__cell--shrink">
         
@@ -105,11 +136,13 @@
             
 <div class="md-search" data-md-component="search" role="dialog">
   <label class="md-search__overlay" for="search"></label>
-  <div class="md-search__inner">
+  <div class="md-search__inner" role="search">
     <form class="md-search__form" name="search">
-      <input type="text" class="md-search__input" name="query" required placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="query">
+      <input type="text" class="md-search__input" name="query" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="query" data-md-state="active">
       <label class="md-icon md-search__icon" for="search"></label>
-      <button type="reset" class="md-icon md-search__icon" data-md-component="reset">&#xE5CD;</button>
+      <button type="reset" class="md-icon md-search__icon" data-md-component="reset" tabindex="-1">
+        &#xE5CD;
+      </button>
     </form>
     <div class="md-search__output">
       <div class="md-search__scrollwrap" data-md-scrollfix>
@@ -157,6 +190,9 @@
     
     <div class="md-container">
       
+        
+      
+      
       <main class="md-main">
         <div class="md-main__inner md-grid" data-md-component="container">
           
@@ -171,7 +207,7 @@
         <i class="md-icon"></i>
       
     </span>
-    rdbc documentation - 0.0.75
+    rdbc documentation - 0.0.81
   </label>
   
     <div class="md-nav__source">
@@ -357,6 +393,8 @@
   </a>
   
 </li>
+      
+      
       
       
       
@@ -551,6 +589,8 @@
       
       
       
+      
+      
     </ul>
   
 </nav>
@@ -585,17 +625,17 @@
  -->
 
 <h2 id="connecting-to-a-database">Connecting to a database<a class="headerlink" href="#connecting-to-a-database" title="Permanent link">&para;</a></h2>
-<p>To connect to a database you first need to get a hold on <a href="https://javadoc.io/page/io.rdbc/rdbc-api-scala_2.12/0.0.75/io/rdbc/sapi/ConnectionFactory.html"><code>ConnectionFactory</code></a>
+<p>To connect to a database you first need to get a hold on <a href="https://javadoc.io/page/io.rdbc/rdbc-api-scala_2.12/0.0.81/io/rdbc/sapi/ConnectionFactory.html"><code>ConnectionFactory</code></a>
 implementation provided by a rdbc driver. Consult the driver's documentation on how to
 instantiate and configure <code>ConnectionFactory</code> it provides. </p>
-<p>To connect to a database means to obtain <a href="https://javadoc.io/page/io.rdbc/rdbc-api-scala_2.12/0.0.75/io/rdbc/sapi/Connection.html"><code>Connection</code></a> instance. Once you have
+<p>To connect to a database means to obtain <a href="https://javadoc.io/page/io.rdbc/rdbc-api-scala_2.12/0.0.81/io/rdbc/sapi/Connection.html"><code>Connection</code></a> instance. Once you have
 the factory, you have the following options on how to get the connection:</p>
 <h3 id="manually-opening-and-releasing-a-connection">Manually opening and releasing a connection<a class="headerlink" href="#manually-opening-and-releasing-a-connection" title="Permanent link">&para;</a></h3>
 <p>Connection factory provides 
-<a href="https://javadoc.io/page/io.rdbc/rdbc-api-scala_2.12/0.0.75/io/rdbc/sapi/ConnectionFactory.html#connection()(implicittimeout:io.rdbc.sapi.Timeout):scala.concurrent.Future[io.rdbc.sapi.Connection]"><code>connection</code></a>
+<a href="https://javadoc.io/page/io.rdbc/rdbc-api-scala_2.12/0.0.81/io/rdbc/sapi/ConnectionFactory.html#connection()(implicittimeout:io.rdbc.sapi.Timeout):scala.concurrent.Future[io.rdbc.sapi.Connection]"><code>connection</code></a>
 method that simply returns a <code>Future</code> holding a <code>Connection</code>. A connection
 obtained this way must be then released manually using 
-<a href="https://javadoc.io/page/io.rdbc/rdbc-api-scala_2.12/0.0.75/io/rdbc/sapi/Connection.html#release():scala.concurrent.Future[Unit]"><code>release</code></a>
+<a href="https://javadoc.io/page/io.rdbc/rdbc-api-scala_2.12/0.0.81/io/rdbc/sapi/Connection.html#release():scala.concurrent.Future[Unit]"><code>release</code></a>
 method. Here's the example usage:</p>
 <div class="codehilite"><pre><span></span><span class="k">import</span> <span class="nn">io.rdbc.sapi._</span>
 <span class="k">import</span> <span class="nn">io.rdbc.util.Futures._</span>
@@ -611,7 +651,7 @@ method. Here's the example usage:</p>
 </pre></div>
 
 
-<p><a href="https://javadoc.io/page/io.rdbc/rdbc-api-scala_2.12/0.0.75io/rdbc/util/Futures$$FutureOps.html#andThenF[U](pf:PartialFunction[scala.util.Try[T],scala.concurrent.Future[U]])(implicitec:scala.concurrent.ExecutionContext):scala.concurrent.Future[T]"><code>andThenF</code></a>
+<p><a href="https://javadoc.io/page/io.rdbc/rdbc-api-scala_2.12/0.0.81io/rdbc/util/Futures$$FutureOps.html#andThenF[U](pf:PartialFunction[scala.util.Try[T],scala.concurrent.Future[U]])(implicitec:scala.concurrent.ExecutionContext):scala.concurrent.Future[T]"><code>andThenF</code></a>
 future combinator provided by
 <a href="https://search.maven.org/#search%7Cga%7C1%7Cg%3A%22io.rdbc%22%20util">rdbc utilities</a>
 package is like a standard <code>andThen</code> but partial function passed to it returns
@@ -620,7 +660,7 @@ a <code>Future</code> and the chain can proceed only when this future completes.
 <h3 id="using-the-loan-pattern">Using the loan pattern<a class="headerlink" href="#using-the-loan-pattern" title="Permanent link">&para;</a></h3>
 <p>Even if you haven't heard about the loan pattern you probably know what it is.
 Connection factory provides
-<a href="https://javadoc.io/page/io.rdbc/rdbc-api-scala_2.12/0.0.75/io/rdbc/sapi/ConnectionFactory.html#withConnection[A](body:io.rdbc.sapi.Connection=&gt;scala.concurrent.Future[A])(implicittimeout:io.rdbc.sapi.Timeout):scala.concurrent.Future[A]"><code>withConnection</code></a>
+<a href="https://javadoc.io/page/io.rdbc/rdbc-api-scala_2.12/0.0.81/io/rdbc/sapi/ConnectionFactory.html#withConnection[A](body:io.rdbc.sapi.Connection=&gt;scala.concurrent.Future[A])(implicittimeout:io.rdbc.sapi.Timeout):scala.concurrent.Future[A]"><code>withConnection</code></a>
 method that executes a block of code in the context of a database connection and
 releases the connection afterwards. It looks like this:</p>
 <div class="codehilite"><pre><span></span><span class="k">import</span> <span class="nn">io.rdbc.sapi._</span>
@@ -645,9 +685,9 @@ transactions.</p>
 <h3 id="manual">Manual<a class="headerlink" href="#manual" title="Permanent link">&para;</a></h3>
 <p>Managing transaction manually means using the three methods provided by <code>Connection</code>
 trait:
-<a href="https://javadoc.io/page/io.rdbc/rdbc-api-scala_2.12/0.0.75/io/rdbc/sapi/Connection.html#beginTx()(implicittimeout:io.rdbc.sapi.Timeout):scala.concurrent.Future[Unit]"><code>beginTx</code></a>,
-<a href="https://javadoc.io/page/io.rdbc/rdbc-api-scala_2.12/0.0.75/io/rdbc/sapi/Connection.html#commitTx()(implicittimeout:io.rdbc.sapi.Timeout):scala.concurrent.Future[Unit]"><code>commitTx</code></a>
-and <a href="https://javadoc.io/page/io.rdbc/rdbc-api-scala_2.12/0.0.75/io/rdbc/sapi/Connection.html#rollbackTx()(implicittimeout:io.rdbc.sapi.Timeout):scala.concurrent.Future[Unit]"><code>rollbackTx</code></a>. 
+<a href="https://javadoc.io/page/io.rdbc/rdbc-api-scala_2.12/0.0.81/io/rdbc/sapi/Connection.html#beginTx()(implicittimeout:io.rdbc.sapi.Timeout):scala.concurrent.Future[Unit]"><code>beginTx</code></a>,
+<a href="https://javadoc.io/page/io.rdbc/rdbc-api-scala_2.12/0.0.81/io/rdbc/sapi/Connection.html#commitTx()(implicittimeout:io.rdbc.sapi.Timeout):scala.concurrent.Future[Unit]"><code>commitTx</code></a>
+and <a href="https://javadoc.io/page/io.rdbc/rdbc-api-scala_2.12/0.0.81/io/rdbc/sapi/Connection.html#rollbackTx()(implicittimeout:io.rdbc.sapi.Timeout):scala.concurrent.Future[Unit]"><code>rollbackTx</code></a>. 
 Each of these methods return a <code>Future</code> of <code>Unit</code> &mdash; there is no dedicated 
 trait or class representing a transaction. Similar to manual handling of connecting
 and disconnecting from the database, manual transaction management is kind of
@@ -655,7 +695,7 @@ cumbersome. When you don't need the flexibility provided by the three methods,
 use the transactional loan pattern described below.</p>
 <h3 id="using-the-transactional-loan-pattern">Using the transactional loan pattern<a class="headerlink" href="#using-the-transactional-loan-pattern" title="Permanent link">&para;</a></h3>
 <p><code>Connection</code> trait provides
-<a href="https://javadoc.io/page/io.rdbc/rdbc-api-scala_2.12/0.0.75/io/rdbc/sapi/Connection.html#withTransaction[A](body:=&gt;scala.concurrent.Future[A])(implicittimeout:io.rdbc.sapi.Timeout):scala.concurrent.Future[A]"><code>withTransaction</code></a>
+<a href="https://javadoc.io/page/io.rdbc/rdbc-api-scala_2.12/0.0.81/io/rdbc/sapi/Connection.html#withTransaction[A](body:=&gt;scala.concurrent.Future[A])(implicittimeout:io.rdbc.sapi.Timeout):scala.concurrent.Future[A]"><code>withTransaction</code></a>
 method which allows to execute a block of code in a context of a newly started
 transaction. If a <code>Future</code> returned by the block of code is successful, the
 transaction will be committed &mdash; if it fails, the transaction will be rolled
@@ -677,7 +717,7 @@ back:</p>
 to the execution context and the original error causing the rollback will be returned.</p>
 <p>It's a common use case to connect to the database and execute just a single
 transaction. This use case is covered by 
-<a href="https://javadoc.io/page/io.rdbc/rdbc-api-scala_2.12/0.0.75/io/rdbc/sapi/ConnectionFactory.html#withTransaction[A](body:io.rdbc.sapi.Connection=&gt;scala.concurrent.Future[A])(implicittimeout:io.rdbc.sapi.Timeout):scala.concurrent.Future[A]"><code>withTransaction</code></a>
+<a href="https://javadoc.io/page/io.rdbc/rdbc-api-scala_2.12/0.0.81/io/rdbc/sapi/ConnectionFactory.html#withTransaction[A](body:io.rdbc.sapi.Connection=&gt;scala.concurrent.Future[A])(implicittimeout:io.rdbc.sapi.Timeout):scala.concurrent.Future[A]"><code>withTransaction</code></a>
 method provided by a <code>ConnectionFactory</code>. Above snippet could be simplified as follows:</p>
 <div class="codehilite"><pre><span></span><span class="k">import</span> <span class="nn">io.rdbc.sapi._</span>
 
@@ -695,7 +735,7 @@ method provided by a <code>ConnectionFactory</code>. Above snippet could be simp
 i.e. whether it can still execute queries. A connection may get broken because of
 a number of reasons including network-related problems. To check whether the connection
 is usable, use
-<a href="https://javadoc.io/page/io.rdbc/rdbc-api-scala_2.12/0.0.75/io/rdbc/sapi/Connection.html#validate()(implicittimeout:io.rdbc.sapi.Timeout):scala.concurrent.Future[Unit]"><code>validate</code></a>
+<a href="https://javadoc.io/page/io.rdbc/rdbc-api-scala_2.12/0.0.81/io/rdbc/sapi/Connection.html#validate()(implicittimeout:io.rdbc.sapi.Timeout):scala.concurrent.Future[Unit]"><code>validate</code></a>
 method.</p>
 <p>Connection can also be validated by executing any query but using <code>validate</code> is
 a preferred way since it can leverage a vendor-specific way of validating the
@@ -705,9 +745,9 @@ connection with a minimal overhead.</p>
 that multiple threads can execute queries using the same connection at the same
 time. Only one operation can be executed at any given time. When some thread tries
 to use a non-idle connection, resulting <code>Future</code> fails with
-<a href="https://javadoc.io/page/io.rdbc/rdbc-api-scala_2.12/0.0.75/io/rdbc/api/exceptions/IllegalSessionStateException.html"><code>IllegalSessionStateException</code></a>.
+<a href="https://javadoc.io/page/io.rdbc/rdbc-api-scala_2.12/0.0.81/io/rdbc/api/exceptions/IllegalSessionStateException.html"><code>IllegalSessionStateException</code></a>.
 Exception to this rule is 
-<a href="https://javadoc.io/page/io.rdbc/rdbc-api-scala_2.12/0.0.75/io/rdbc/sapi/Connection.html#forceRelease():scala.concurrent.Future[Unit]"><code>forceRelease</code></a>
+<a href="https://javadoc.io/page/io.rdbc/rdbc-api-scala_2.12/0.0.81/io/rdbc/sapi/Connection.html#forceRelease():scala.concurrent.Future[Unit]"><code>forceRelease</code></a>
 method which can be used regardless of whether connection is idle or not.</p>
 <p>Example below demonstrates an invalid code which can fail with <code>IllegalSessionStateException</code>:</p>
 <table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
@@ -747,7 +787,7 @@ will start executing the first request (line <code>6</code>) before the second (
 
 
 <p><code>Connection</code> also provides
-<a href="https://javadoc.io/page/io.rdbc/rdbc-api-scala_2.12/0.0.75/io/rdbc/sapi/Connection.html#watchForIdle:scala.concurrent.Future[Unit]"><code>watchForIdle</code></a>
+<a href="https://javadoc.io/page/io.rdbc/rdbc-api-scala_2.12/0.0.81/io/rdbc/sapi/Connection.html#watchForIdle:scala.concurrent.Future[Unit]"><code>watchForIdle</code></a>
 method returning future which completes when connection becomes idle. Snippet below
 is safe from failing with <code>IllegalSessionStateException</code>.</p>
 <div class="codehilite"><pre><span></span><span class="k">import</span> <span class="nn">io.rdbc.sapi._</span>
@@ -777,6 +817,8 @@ provides a <code>ConnectionFactory</code> implementation capable of connection p
               
               
                 
+
+
               
             </article>
           </div>
@@ -826,13 +868,13 @@ provides a <code>ConnectionFactory</code> implementation capable of connection p
       <div class="md-footer-copyright">
         
           <div class="md-footer-copyright__highlight">
-            Copyright &copy; 2016 - 2017 rdbc contributors
+            Copyright &copy; 2016 - 2018 rdbc contributors
           </div>
         
         powered by
-        <a href="http://www.mkdocs.org" title="MkDocs">MkDocs</a>
+        <a href="http://www.mkdocs.org">MkDocs</a>
         and
-        <a href="http://squidfunk.github.io/mkdocs-material/" title="Material for MkDocs">
+        <a href="https://squidfunk.github.io/mkdocs-material/">
           Material for MkDocs</a>
       </div>
       
@@ -854,14 +896,12 @@ provides a <code>ConnectionFactory</code> implementation capable of connection p
       
     </div>
     
-      <script src="../../assets/javascripts/application-8e4952e681.js"></script>
+      <script src="../../assets/javascripts/application.b438e6c5.js"></script>
       
-      <script>app.initialize({version:"0.17.1",url:{base:"../.."}})</script>
+      <script>app.initialize({version:"0.17.3",url:{base:"../.."}})</script>
       
     
     
-      
-      <script>!function(e,t,a,n,o,c,i){e.GoogleAnalyticsObject=o,e[o]=e[o]||function(){(e[o].q=e[o].q||[]).push(arguments)},e[o].l=1*new Date,c=t.createElement(a),i=t.getElementsByTagName(a)[0],c.async=1,c.src=n,i.parentNode.insertBefore(c,i)}(window,document,"script","https://www.google-analytics.com/analytics.js","ga"),ga("create","UA-103140141-1","rdbc.io"),ga("set","anonymizeIp",!0),ga("send","pageview");var links=document.getElementsByTagName("a");Array.prototype.map.call(links,function(e){e.host!=document.location.host&&e.addEventListener("click",function(){var t=e.getAttribute("data-md-action")||"follow";ga("send","event","outbound",t,e.href)})});var query=document.forms.search.query;query.addEventListener("blur",function(){if(this.value){var e=document.location.pathname;ga("send","pageview",e+"?q="+this.value)}})</script>
       
     
   </body>

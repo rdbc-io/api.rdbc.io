@@ -21,6 +21,10 @@
       
         <meta name="lang:search.language" content="en">
       
+        <meta name="lang:search.pipeline.stopwords" content="True">
+      
+        <meta name="lang:search.pipeline.trimmer" content="True">
+      
         <meta name="lang:search.result.none" content="No matching documents">
       
         <meta name="lang:search.result.one" content="1 matching document">
@@ -30,21 +34,24 @@
         <meta name="lang:search.tokenizer" content="[\s\-]+">
       
       <link rel="shortcut icon" href="../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-0.17.1, mkdocs-material-2.0.4">
+      <meta name="generator" content="mkdocs-0.17.3, mkdocs-material-2.7.3">
     
     
       
-        <title>Data types - rdbc documentation - 0.0.75</title>
+        <title>Data types - rdbc documentation - 0.0.81</title>
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/application-709eec9410.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/application.8d40d89b.css">
+      
+        <link rel="stylesheet" href="../../assets/stylesheets/application-palette.6079476c.css">
       
     
     
-      <script src="../../assets/javascripts/modernizr-e826f8942a.js"></script>
+      <script src="../../assets/javascripts/modernizr.1aa3b519.js"></script>
     
     
+      <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
       
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700|Roboto+Mono">
         <style>body,input{font-family:"Roboto","Helvetica Neue",Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono","Courier New",Courier,monospace}</style>
@@ -57,25 +64,49 @@
     
   </head>
   
-    <body>
+    
+    
+    <body dir="ltr" data-md-color-primary="green" data-md-color-accent="red">
   
     <svg class="md-svg">
       <defs>
         
         
-          <svg xmlns="http://www.w3.org/2000/svg" width="416" height="448" viewBox="0 0 416 448" id="github"><path fill="currentColor" d="M160 304q0 10-3.125 20.5t-10.75 19T128 352t-18.125-8.5-10.75-19T96 304t3.125-20.5 10.75-19T128 256t18.125 8.5 10.75 19T160 304zm160 0q0 10-3.125 20.5t-10.75 19T288 352t-18.125-8.5-10.75-19T256 304t3.125-20.5 10.75-19T288 256t18.125 8.5 10.75 19T320 304zm40 0q0-30-17.25-51T296 232q-10.25 0-48.75 5.25Q229.5 240 208 240t-39.25-2.75Q130.75 232 120 232q-29.5 0-46.75 21T56 304q0 22 8 38.375t20.25 25.75 30.5 15 35 7.375 37.25 1.75h42q20.5 0 37.25-1.75t35-7.375 30.5-15 20.25-25.75T360 304zm56-44q0 51.75-15.25 82.75-9.5 19.25-26.375 33.25t-35.25 21.5-42.5 11.875-42.875 5.5T212 416q-19.5 0-35.5-.75t-36.875-3.125-38.125-7.5-34.25-12.875T37 371.5t-21.5-28.75Q0 312 0 260q0-59.25 34-99-6.75-20.5-6.75-42.5 0-29 12.75-54.5 27 0 47.5 9.875t47.25 30.875Q171.5 96 212 96q37 0 70 8 26.25-20.5 46.75-30.25T376 64q12.75 25.5 12.75 54.5 0 21.75-6.75 42 34 40 34 99.5z"/></svg>
+          <svg xmlns="http://www.w3.org/2000/svg" width="416" height="448"
+    viewBox="0 0 416 448" id="github">
+  <path fill="currentColor" d="M160 304q0 10-3.125 20.5t-10.75 19-18.125
+        8.5-18.125-8.5-10.75-19-3.125-20.5 3.125-20.5 10.75-19 18.125-8.5
+        18.125 8.5 10.75 19 3.125 20.5zM320 304q0 10-3.125 20.5t-10.75
+        19-18.125 8.5-18.125-8.5-10.75-19-3.125-20.5 3.125-20.5 10.75-19
+        18.125-8.5 18.125 8.5 10.75 19 3.125 20.5zM360
+        304q0-30-17.25-51t-46.75-21q-10.25 0-48.75 5.25-17.75 2.75-39.25
+        2.75t-39.25-2.75q-38-5.25-48.75-5.25-29.5 0-46.75 21t-17.25 51q0 22 8
+        38.375t20.25 25.75 30.5 15 35 7.375 37.25 1.75h42q20.5 0
+        37.25-1.75t35-7.375 30.5-15 20.25-25.75 8-38.375zM416 260q0 51.75-15.25
+        82.75-9.5 19.25-26.375 33.25t-35.25 21.5-42.5 11.875-42.875 5.5-41.75
+        1.125q-19.5 0-35.5-0.75t-36.875-3.125-38.125-7.5-34.25-12.875-30.25-20.25-21.5-28.75q-15.5-30.75-15.5-82.75
+        0-59.25 34-99-6.75-20.5-6.75-42.5 0-29 12.75-54.5 27 0 47.5 9.875t47.25
+        30.875q36.75-8.75 77.25-8.75 37 0 70 8 26.25-20.5
+        46.75-30.25t47.25-9.75q12.75 25.5 12.75 54.5 0 21.75-6.75 42 34 40 34
+        99.5z" />
+</svg>
         
       </defs>
     </svg>
-    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="drawer">
-    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="search">
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="search" autocomplete="off">
     <label class="md-overlay" data-md-component="overlay" for="drawer"></label>
+    
+      <a href="#type-mapping" tabindex="1" class="md-skip">
+        Skip to content
+      </a>
+    
     
       <header class="md-header" data-md-component="header">
   <nav class="md-header-nav md-grid">
     <div class="md-flex">
       <div class="md-flex__cell md-flex__cell--shrink">
-        <a href="../.." title="rdbc documentation - 0.0.75" class="md-header-nav__button md-logo">
+        <a href="../.." title="rdbc documentation - 0.0.81" class="md-header-nav__button md-logo">
           
             <i class="md-icon"></i>
           
@@ -85,18 +116,18 @@
         <label class="md-icon md-icon--menu md-header-nav__button" for="drawer"></label>
       </div>
       <div class="md-flex__cell md-flex__cell--stretch">
-        <span class="md-flex__ellipsis md-header-nav__title">
+        <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
           
             
-              
-                <span class="md-header-nav__parent">
-                  Scala API user guide
-                </span>
-              
+              <span class="md-header-nav__topic">
+                rdbc documentation - 0.0.81
+              </span>
+              <span class="md-header-nav__topic">
+                Data types
+              </span>
             
-            Data types
           
-        </span>
+        </div>
       </div>
       <div class="md-flex__cell md-flex__cell--shrink">
         
@@ -105,11 +136,13 @@
             
 <div class="md-search" data-md-component="search" role="dialog">
   <label class="md-search__overlay" for="search"></label>
-  <div class="md-search__inner">
+  <div class="md-search__inner" role="search">
     <form class="md-search__form" name="search">
-      <input type="text" class="md-search__input" name="query" required placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="query">
+      <input type="text" class="md-search__input" name="query" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="query" data-md-state="active">
       <label class="md-icon md-search__icon" for="search"></label>
-      <button type="reset" class="md-icon md-search__icon" data-md-component="reset">&#xE5CD;</button>
+      <button type="reset" class="md-icon md-search__icon" data-md-component="reset" tabindex="-1">
+        &#xE5CD;
+      </button>
     </form>
     <div class="md-search__output">
       <div class="md-search__scrollwrap" data-md-scrollfix>
@@ -157,6 +190,9 @@
     
     <div class="md-container">
       
+        
+      
+      
       <main class="md-main">
         <div class="md-main__inner md-grid" data-md-component="container">
           
@@ -171,7 +207,7 @@
         <i class="md-icon"></i>
       
     </span>
-    rdbc documentation - 0.0.75
+    rdbc documentation - 0.0.81
   </label>
   
     <div class="md-nav__source">
@@ -322,8 +358,15 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#statement-argument-type-conversions" title="Statement argument type conversions" class="md-nav__link">
-    Statement argument type conversions
+  <a href="#explicitly-setting-database-type-in-statements" title="Explicitly setting database type in statements" class="md-nav__link">
+    Explicitly setting database type in statements
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#setting-typed-sql-null-values" title="Setting typed SQL NULL values" class="md-nav__link">
+    Setting typed SQL NULL values
   </a>
   
 </li>
@@ -334,6 +377,8 @@
   </a>
   
 </li>
+      
+      
       
       
       
@@ -442,8 +487,15 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#statement-argument-type-conversions" title="Statement argument type conversions" class="md-nav__link">
-    Statement argument type conversions
+  <a href="#explicitly-setting-database-type-in-statements" title="Explicitly setting database type in statements" class="md-nav__link">
+    Explicitly setting database type in statements
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#setting-typed-sql-null-values" title="Setting typed SQL NULL values" class="md-nav__link">
+    Setting typed SQL NULL values
   </a>
   
 </li>
@@ -454,6 +506,8 @@
   </a>
   
 </li>
+      
+      
       
       
       
@@ -545,11 +599,11 @@ Paragraphs below describe the mapping and possible conversions.</p>
 </tr>
 <tr>
 <td>NUMERIC</td>
-<td><a href="https://javadoc.io/page/io.rdbc/rdbc-api-scala_2.12/0.0.75/io/rdbc/sapi/SqlNumeric$.html"><code>io.rdbc.sapi.SqlNumeric</code></a></td>
+<td><a href="https://javadoc.io/page/io.rdbc/rdbc-api-scala_2.12/0.0.81/io/rdbc/sapi/DecimalNumber$.html"><code>io.rdbc.sapi.DecimalNumber</code></a></td>
 </tr>
 <tr>
 <td>DECIMAL</td>
-<td><a href="https://javadoc.io/page/io.rdbc/rdbc-api-scala_2.12/0.0.75/io/rdbc/sapi/SqlNumeric$.html"><code>io.rdbc.sapi.SqlNumeric</code></a></td>
+<td><a href="https://javadoc.io/page/io.rdbc/rdbc-api-scala_2.12/0.0.81/io/rdbc/sapi/DecimalNumber$.html"><code>io.rdbc.sapi.DecimalNumber</code></a></td>
 </tr>
 <tr>
 <td>REAL</td>
@@ -561,7 +615,7 @@ Paragraphs below describe the mapping and possible conversions.</p>
 </tr>
 <tr>
 <td>SMALLINT</td>
-<td><code>Short</code></td>
+<td><code>Int</code></td>
 </tr>
 <tr>
 <td>INTEGER</td>
@@ -585,7 +639,7 @@ Paragraphs below describe the mapping and possible conversions.</p>
 </tr>
 <tr>
 <td>TIMESTAMP WITH TIME ZONE</td>
-<td><code>java.time.Instant</code></td>
+<td><code>java.time.ZonedDateTime</code></td>
 </tr>
 </tbody>
 </table>
@@ -609,8 +663,8 @@ by the SQL standard.</p>
 <p>SQL types listed in <a href="#type-mapping">Type mapping</a> paragraph can be represented 
 not only by their direct Scala counterparts. For example, NUMERIC can also be
 converted to Scala's <code>Float</code>. If user requests NUMERIC column value as a <code>Float</code>,
-<code>Float</code> will be returned, possibly losing precision. The table below lists possible
-conversions.</p>
+<code>Float</code> will be returned, but only if the NUMERIC value is representable by
+exact <code>Float</code>. The table below lists possible conversions.</p>
 <table>
 <thead>
 <tr>
@@ -631,19 +685,9 @@ conversions.</p>
 <td>1 converts to <code>true</code>.<br>0 converts to <code>false</code>.</td>
 </tr>
 <tr>
-<td>VARCHAR, NVARCHAR,<br>CLOB, NCLOB</td>
-<td><code>BigDecimal</code>, <code>SqlNumeric</code></td>
-<td>Textual value is converted by rules defined <a href="https://docs.oracle.com/javase/8/docs/api/java/math/BigDecimal.html#BigDecimal-java.lang.String-">here</a>.</td>
-</tr>
-<tr>
-<td>VARCHAR, NVARCHAR,<br>CLOB, NCLOB</td>
-<td><code>java.util.UUID</code></td>
-<td>Textual value is converted by rules defined <a href="https://docs.oracle.com/javase/8/docs/api/java/util/UUID.html#fromString-java.lang.String-">here</a>.</td>
-</tr>
-<tr>
 <td>DECIMAL, NUMERIC, REAL, DOUBLE, INTEGER, SMALLINT, BIGINT</td>
 <td><code>Float</code>, <code>Double</code>, <code>Byte</code>, <code>Short</code>, <code>Int</code>, <code>Long</code></td>
-<td>Value may be rounded and/or truncated.</td>
+<td>Only if exact conversion is possible.</td>
 </tr>
 <tr>
 <td>INTEGER, SMALLINT, BIGINT</td>
@@ -655,31 +699,26 @@ conversions.</p>
 <td><code>BigDecimal</code></td>
 <td>Infinity and NaN are not convertible.</td>
 </tr>
-<tr>
-<td>VARCHAR, NVARCHAR,<br>CLOB, NCLOB</td>
-<td>CHAR</td>
-<td>Values containing single character are convertible.</td>
-</tr>
-<tr>
-<td>TIMESTAMP</td>
-<td><code>java.time.LocalDate</code></td>
-<td>Time part is truncated.</td>
-</tr>
-<tr>
-<td>TIMESTAMP</td>
-<td><code>java.time.LocalTime</code></td>
-<td>Date part is truncated.</td>
-</tr>
 </tbody>
 </table>
 <p>If client requests to convert between inconvertible types,
-<a href="https://javadoc.io/page/io.rdbc/rdbc-api-scala_2.12/0.0.75/io/rdbc/api/exceptions/ConversionException.html"><code>ConversionException</code></a>
+<a href="https://javadoc.io/page/io.rdbc/rdbc-api-scala_2.12/0.0.81/io/rdbc/sapi/exceptions/ConversionException.html"><code>ConversionException</code></a>
 is thrown.</p>
-<h2 id="statement-argument-type-conversions">Statement argument type conversions<a class="headerlink" href="#statement-argument-type-conversions" title="Permanent link">&para;</a></h2>
-<p>When setting statement arguments, in case when a given Scala type maps to more
-than one database type there is no way for the API client to enforce conversion
-to a specific database type. This is the case only for two Scala types: <code>String</code>
-which always maps to NVARCHAR and <code>Array[Byte]</code> which always maps to VARBINARY.</p>
+<h2 id="explicitly-setting-database-type-in-statements">Explicitly setting database type in statements<a class="headerlink" href="#explicitly-setting-database-type-in-statements" title="Permanent link">&para;</a></h2>
+<p>rdbc defines a set of case classes that directly represent SQL types. When setting
+statement arguments, in case when a given bare Scala type maps to more
+than one database type (such as <code>String</code> maps to both <code>CLOB</code> and <code>VARCHAR</code>) and
+you want to enforce this argument to be represented as a specific database type,
+a case class representing SQL type can be used. </p>
+<p>For example, if you want to pass <code class="codehilite"><span class="s">&quot;my text&quot;</span></code> as a <code>CLOB</code>, instead of passing bare <code>&quot;my text&quot;</code>, 
+pass <code class="codehilite"><span class="n">io</span><span class="o">.</span><span class="n">rdbc</span><span class="o">.</span><span class="n">sapi</span><span class="o">.</span><span class="nc">SqlClob</span><span class="o">(</span><span class="s">&quot;my text&quot;</span><span class="o">)</span></code>.</p>
+<h2 id="setting-typed-sql-null-values">Setting typed SQL NULL values<a class="headerlink" href="#setting-typed-sql-null-values" title="Permanent link">&para;</a></h2>
+<p>Normally, to set a statement argument as <code>NULL</code> you can Scala's <code>None</code>. <code>None</code>
+value doesn't carry any information that would allow the rdbc driver to tell
+what is a SQL type of the <code>NULL</code> value. For most cases the type of the <code>NULL</code>
+value doesn't matter but in cases it does you can use rdbc's <code>SqlNull</code> that
+contains the type information.</p>
+<p>For example, to pass a <code>NULL</code> value typed as <code>NVARCHAR</code>, use <code class="codehilite"><span class="nc">SqlNull</span><span class="o">.</span><span class="n">of</span><span class="o">[</span><span class="kt">SqlNVarchar</span><span class="o">]</span></code>.</p>
 <h2 id="vendor-specific-types">Vendor specific types<a class="headerlink" href="#vendor-specific-types" title="Permanent link">&para;</a></h2>
 <p>rdbc driver implementing support for a particular database vendor may provide
 additional type mappings and conversions. Consult the driver's documentation
@@ -690,6 +729,8 @@ on this topic.</p>
               
               
                 
+
+
               
             </article>
           </div>
@@ -739,13 +780,13 @@ on this topic.</p>
       <div class="md-footer-copyright">
         
           <div class="md-footer-copyright__highlight">
-            Copyright &copy; 2016 - 2017 rdbc contributors
+            Copyright &copy; 2016 - 2018 rdbc contributors
           </div>
         
         powered by
-        <a href="http://www.mkdocs.org" title="MkDocs">MkDocs</a>
+        <a href="http://www.mkdocs.org">MkDocs</a>
         and
-        <a href="http://squidfunk.github.io/mkdocs-material/" title="Material for MkDocs">
+        <a href="https://squidfunk.github.io/mkdocs-material/">
           Material for MkDocs</a>
       </div>
       
@@ -767,14 +808,12 @@ on this topic.</p>
       
     </div>
     
-      <script src="../../assets/javascripts/application-8e4952e681.js"></script>
+      <script src="../../assets/javascripts/application.b438e6c5.js"></script>
       
-      <script>app.initialize({version:"0.17.1",url:{base:"../.."}})</script>
+      <script>app.initialize({version:"0.17.3",url:{base:"../.."}})</script>
       
     
     
-      
-      <script>!function(e,t,a,n,o,c,i){e.GoogleAnalyticsObject=o,e[o]=e[o]||function(){(e[o].q=e[o].q||[]).push(arguments)},e[o].l=1*new Date,c=t.createElement(a),i=t.getElementsByTagName(a)[0],c.async=1,c.src=n,i.parentNode.insertBefore(c,i)}(window,document,"script","https://www.google-analytics.com/analytics.js","ga"),ga("create","UA-103140141-1","rdbc.io"),ga("set","anonymizeIp",!0),ga("send","pageview");var links=document.getElementsByTagName("a");Array.prototype.map.call(links,function(e){e.host!=document.location.host&&e.addEventListener("click",function(){var t=e.getAttribute("data-md-action")||"follow";ga("send","event","outbound",t,e.href)})});var query=document.forms.search.query;query.addEventListener("blur",function(){if(this.value){var e=document.location.pathname;ga("send","pageview",e+"?q="+this.value)}})</script>
       
     
   </body>
