@@ -38,7 +38,7 @@
     
     
       
-        <title>Working with a connection - rdbc documentation - 0.0.81</title>
+        <title>Working with a connection - rdbc documentation - 0.0.82</title>
       
     
     
@@ -106,7 +106,7 @@
   <nav class="md-header-nav md-grid">
     <div class="md-flex">
       <div class="md-flex__cell md-flex__cell--shrink">
-        <a href="../.." title="rdbc documentation - 0.0.81" class="md-header-nav__button md-logo">
+        <a href="../.." title="rdbc documentation - 0.0.82" class="md-header-nav__button md-logo">
           
             <i class="md-icon"></i>
           
@@ -120,7 +120,7 @@
           
             
               <span class="md-header-nav__topic">
-                rdbc documentation - 0.0.81
+                rdbc documentation - 0.0.82
               </span>
               <span class="md-header-nav__topic">
                 Working with a connection
@@ -207,7 +207,7 @@
         <i class="md-icon"></i>
       
     </span>
-    rdbc documentation - 0.0.81
+    rdbc documentation - 0.0.82
   </label>
   
     <div class="md-nav__source">
@@ -494,6 +494,18 @@
   </li>
 
     
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../privacy/" title="Privacy policy" class="md-nav__link">
+      Privacy policy
+    </a>
+  </li>
+
+    
   </ul>
 </nav>
                   </div>
@@ -625,17 +637,17 @@
  -->
 
 <h2 id="connecting-to-a-database">Connecting to a database<a class="headerlink" href="#connecting-to-a-database" title="Permanent link">&para;</a></h2>
-<p>To connect to a database you first need to get a hold on <a href="https://javadoc.io/page/io.rdbc/rdbc-api-scala_2.12/0.0.81/io/rdbc/sapi/ConnectionFactory.html"><code>ConnectionFactory</code></a>
+<p>To connect to a database you first need to get a hold on <a href="https://javadoc.io/page/io.rdbc/rdbc-api-scala_2.12/0.0.82/io/rdbc/sapi/ConnectionFactory.html"><code>ConnectionFactory</code></a>
 implementation provided by a rdbc driver. Consult the driver's documentation on how to
 instantiate and configure <code>ConnectionFactory</code> it provides. </p>
-<p>To connect to a database means to obtain <a href="https://javadoc.io/page/io.rdbc/rdbc-api-scala_2.12/0.0.81/io/rdbc/sapi/Connection.html"><code>Connection</code></a> instance. Once you have
+<p>To connect to a database means to obtain <a href="https://javadoc.io/page/io.rdbc/rdbc-api-scala_2.12/0.0.82/io/rdbc/sapi/Connection.html"><code>Connection</code></a> instance. Once you have
 the factory, you have the following options on how to get the connection:</p>
 <h3 id="manually-opening-and-releasing-a-connection">Manually opening and releasing a connection<a class="headerlink" href="#manually-opening-and-releasing-a-connection" title="Permanent link">&para;</a></h3>
 <p>Connection factory provides 
-<a href="https://javadoc.io/page/io.rdbc/rdbc-api-scala_2.12/0.0.81/io/rdbc/sapi/ConnectionFactory.html#connection()(implicittimeout:io.rdbc.sapi.Timeout):scala.concurrent.Future[io.rdbc.sapi.Connection]"><code>connection</code></a>
+<a href="https://javadoc.io/page/io.rdbc/rdbc-api-scala_2.12/0.0.82/io/rdbc/sapi/ConnectionFactory.html#connection()(implicittimeout:io.rdbc.sapi.Timeout):scala.concurrent.Future[io.rdbc.sapi.Connection]"><code>connection</code></a>
 method that simply returns a <code>Future</code> holding a <code>Connection</code>. A connection
 obtained this way must be then released manually using 
-<a href="https://javadoc.io/page/io.rdbc/rdbc-api-scala_2.12/0.0.81/io/rdbc/sapi/Connection.html#release():scala.concurrent.Future[Unit]"><code>release</code></a>
+<a href="https://javadoc.io/page/io.rdbc/rdbc-api-scala_2.12/0.0.82/io/rdbc/sapi/Connection.html#release():scala.concurrent.Future[Unit]"><code>release</code></a>
 method. Here's the example usage:</p>
 <div class="codehilite"><pre><span></span><span class="k">import</span> <span class="nn">io.rdbc.sapi._</span>
 <span class="k">import</span> <span class="nn">io.rdbc.util.Futures._</span>
@@ -651,7 +663,7 @@ method. Here's the example usage:</p>
 </pre></div>
 
 
-<p><a href="https://javadoc.io/page/io.rdbc/rdbc-api-scala_2.12/0.0.81io/rdbc/util/Futures$$FutureOps.html#andThenF[U](pf:PartialFunction[scala.util.Try[T],scala.concurrent.Future[U]])(implicitec:scala.concurrent.ExecutionContext):scala.concurrent.Future[T]"><code>andThenF</code></a>
+<p><a href="https://javadoc.io/page/io.rdbc/rdbc-api-scala_2.12/0.0.82io/rdbc/util/Futures$$FutureOps.html#andThenF[U](pf:PartialFunction[scala.util.Try[T],scala.concurrent.Future[U]])(implicitec:scala.concurrent.ExecutionContext):scala.concurrent.Future[T]"><code>andThenF</code></a>
 future combinator provided by
 <a href="https://search.maven.org/#search%7Cga%7C1%7Cg%3A%22io.rdbc%22%20util">rdbc utilities</a>
 package is like a standard <code>andThen</code> but partial function passed to it returns
@@ -660,7 +672,7 @@ a <code>Future</code> and the chain can proceed only when this future completes.
 <h3 id="using-the-loan-pattern">Using the loan pattern<a class="headerlink" href="#using-the-loan-pattern" title="Permanent link">&para;</a></h3>
 <p>Even if you haven't heard about the loan pattern you probably know what it is.
 Connection factory provides
-<a href="https://javadoc.io/page/io.rdbc/rdbc-api-scala_2.12/0.0.81/io/rdbc/sapi/ConnectionFactory.html#withConnection[A](body:io.rdbc.sapi.Connection=&gt;scala.concurrent.Future[A])(implicittimeout:io.rdbc.sapi.Timeout):scala.concurrent.Future[A]"><code>withConnection</code></a>
+<a href="https://javadoc.io/page/io.rdbc/rdbc-api-scala_2.12/0.0.82/io/rdbc/sapi/ConnectionFactory.html#withConnection[A](body:io.rdbc.sapi.Connection=&gt;scala.concurrent.Future[A])(implicittimeout:io.rdbc.sapi.Timeout):scala.concurrent.Future[A]"><code>withConnection</code></a>
 method that executes a block of code in the context of a database connection and
 releases the connection afterwards. It looks like this:</p>
 <div class="codehilite"><pre><span></span><span class="k">import</span> <span class="nn">io.rdbc.sapi._</span>
@@ -685,9 +697,9 @@ transactions.</p>
 <h3 id="manual">Manual<a class="headerlink" href="#manual" title="Permanent link">&para;</a></h3>
 <p>Managing transaction manually means using the three methods provided by <code>Connection</code>
 trait:
-<a href="https://javadoc.io/page/io.rdbc/rdbc-api-scala_2.12/0.0.81/io/rdbc/sapi/Connection.html#beginTx()(implicittimeout:io.rdbc.sapi.Timeout):scala.concurrent.Future[Unit]"><code>beginTx</code></a>,
-<a href="https://javadoc.io/page/io.rdbc/rdbc-api-scala_2.12/0.0.81/io/rdbc/sapi/Connection.html#commitTx()(implicittimeout:io.rdbc.sapi.Timeout):scala.concurrent.Future[Unit]"><code>commitTx</code></a>
-and <a href="https://javadoc.io/page/io.rdbc/rdbc-api-scala_2.12/0.0.81/io/rdbc/sapi/Connection.html#rollbackTx()(implicittimeout:io.rdbc.sapi.Timeout):scala.concurrent.Future[Unit]"><code>rollbackTx</code></a>. 
+<a href="https://javadoc.io/page/io.rdbc/rdbc-api-scala_2.12/0.0.82/io/rdbc/sapi/Connection.html#beginTx()(implicittimeout:io.rdbc.sapi.Timeout):scala.concurrent.Future[Unit]"><code>beginTx</code></a>,
+<a href="https://javadoc.io/page/io.rdbc/rdbc-api-scala_2.12/0.0.82/io/rdbc/sapi/Connection.html#commitTx()(implicittimeout:io.rdbc.sapi.Timeout):scala.concurrent.Future[Unit]"><code>commitTx</code></a>
+and <a href="https://javadoc.io/page/io.rdbc/rdbc-api-scala_2.12/0.0.82/io/rdbc/sapi/Connection.html#rollbackTx()(implicittimeout:io.rdbc.sapi.Timeout):scala.concurrent.Future[Unit]"><code>rollbackTx</code></a>. 
 Each of these methods return a <code>Future</code> of <code>Unit</code> &mdash; there is no dedicated 
 trait or class representing a transaction. Similar to manual handling of connecting
 and disconnecting from the database, manual transaction management is kind of
@@ -695,7 +707,7 @@ cumbersome. When you don't need the flexibility provided by the three methods,
 use the transactional loan pattern described below.</p>
 <h3 id="using-the-transactional-loan-pattern">Using the transactional loan pattern<a class="headerlink" href="#using-the-transactional-loan-pattern" title="Permanent link">&para;</a></h3>
 <p><code>Connection</code> trait provides
-<a href="https://javadoc.io/page/io.rdbc/rdbc-api-scala_2.12/0.0.81/io/rdbc/sapi/Connection.html#withTransaction[A](body:=&gt;scala.concurrent.Future[A])(implicittimeout:io.rdbc.sapi.Timeout):scala.concurrent.Future[A]"><code>withTransaction</code></a>
+<a href="https://javadoc.io/page/io.rdbc/rdbc-api-scala_2.12/0.0.82/io/rdbc/sapi/Connection.html#withTransaction[A](body:=&gt;scala.concurrent.Future[A])(implicittimeout:io.rdbc.sapi.Timeout):scala.concurrent.Future[A]"><code>withTransaction</code></a>
 method which allows to execute a block of code in a context of a newly started
 transaction. If a <code>Future</code> returned by the block of code is successful, the
 transaction will be committed &mdash; if it fails, the transaction will be rolled
@@ -717,7 +729,7 @@ back:</p>
 to the execution context and the original error causing the rollback will be returned.</p>
 <p>It's a common use case to connect to the database and execute just a single
 transaction. This use case is covered by 
-<a href="https://javadoc.io/page/io.rdbc/rdbc-api-scala_2.12/0.0.81/io/rdbc/sapi/ConnectionFactory.html#withTransaction[A](body:io.rdbc.sapi.Connection=&gt;scala.concurrent.Future[A])(implicittimeout:io.rdbc.sapi.Timeout):scala.concurrent.Future[A]"><code>withTransaction</code></a>
+<a href="https://javadoc.io/page/io.rdbc/rdbc-api-scala_2.12/0.0.82/io/rdbc/sapi/ConnectionFactory.html#withTransaction[A](body:io.rdbc.sapi.Connection=&gt;scala.concurrent.Future[A])(implicittimeout:io.rdbc.sapi.Timeout):scala.concurrent.Future[A]"><code>withTransaction</code></a>
 method provided by a <code>ConnectionFactory</code>. Above snippet could be simplified as follows:</p>
 <div class="codehilite"><pre><span></span><span class="k">import</span> <span class="nn">io.rdbc.sapi._</span>
 
@@ -735,7 +747,7 @@ method provided by a <code>ConnectionFactory</code>. Above snippet could be simp
 i.e. whether it can still execute queries. A connection may get broken because of
 a number of reasons including network-related problems. To check whether the connection
 is usable, use
-<a href="https://javadoc.io/page/io.rdbc/rdbc-api-scala_2.12/0.0.81/io/rdbc/sapi/Connection.html#validate()(implicittimeout:io.rdbc.sapi.Timeout):scala.concurrent.Future[Unit]"><code>validate</code></a>
+<a href="https://javadoc.io/page/io.rdbc/rdbc-api-scala_2.12/0.0.82/io/rdbc/sapi/Connection.html#validate()(implicittimeout:io.rdbc.sapi.Timeout):scala.concurrent.Future[Unit]"><code>validate</code></a>
 method.</p>
 <p>Connection can also be validated by executing any query but using <code>validate</code> is
 a preferred way since it can leverage a vendor-specific way of validating the
@@ -745,9 +757,9 @@ connection with a minimal overhead.</p>
 that multiple threads can execute queries using the same connection at the same
 time. Only one operation can be executed at any given time. When some thread tries
 to use a non-idle connection, resulting <code>Future</code> fails with
-<a href="https://javadoc.io/page/io.rdbc/rdbc-api-scala_2.12/0.0.81/io/rdbc/api/exceptions/IllegalSessionStateException.html"><code>IllegalSessionStateException</code></a>.
+<a href="https://javadoc.io/page/io.rdbc/rdbc-api-scala_2.12/0.0.82/io/rdbc/api/exceptions/IllegalSessionStateException.html"><code>IllegalSessionStateException</code></a>.
 Exception to this rule is 
-<a href="https://javadoc.io/page/io.rdbc/rdbc-api-scala_2.12/0.0.81/io/rdbc/sapi/Connection.html#forceRelease():scala.concurrent.Future[Unit]"><code>forceRelease</code></a>
+<a href="https://javadoc.io/page/io.rdbc/rdbc-api-scala_2.12/0.0.82/io/rdbc/sapi/Connection.html#forceRelease():scala.concurrent.Future[Unit]"><code>forceRelease</code></a>
 method which can be used regardless of whether connection is idle or not.</p>
 <p>Example below demonstrates an invalid code which can fail with <code>IllegalSessionStateException</code>:</p>
 <table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
@@ -787,7 +799,7 @@ will start executing the first request (line <code>6</code>) before the second (
 
 
 <p><code>Connection</code> also provides
-<a href="https://javadoc.io/page/io.rdbc/rdbc-api-scala_2.12/0.0.81/io/rdbc/sapi/Connection.html#watchForIdle:scala.concurrent.Future[Unit]"><code>watchForIdle</code></a>
+<a href="https://javadoc.io/page/io.rdbc/rdbc-api-scala_2.12/0.0.82/io/rdbc/sapi/Connection.html#watchForIdle:scala.concurrent.Future[Unit]"><code>watchForIdle</code></a>
 method returning future which completes when connection becomes idle. Snippet below
 is safe from failing with <code>IllegalSessionStateException</code>.</p>
 <div class="codehilite"><pre><span></span><span class="k">import</span> <span class="nn">io.rdbc.sapi._</span>
@@ -899,6 +911,8 @@ provides a <code>ConnectionFactory</code> implementation capable of connection p
       <script src="../../assets/javascripts/application.b438e6c5.js"></script>
       
       <script>app.initialize({version:"0.17.3",url:{base:"../.."}})</script>
+      
+        <script src="../../javascripts/extra.js"></script>
       
     
     
